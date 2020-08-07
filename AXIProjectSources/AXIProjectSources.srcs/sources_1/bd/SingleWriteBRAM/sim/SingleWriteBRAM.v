@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Aug  8 03:52:43 2020
+//Date        : Sat Aug  8 04:25:26 2020
 //Host        : narendiran-X556UQK running 64-bit Ubuntu 20.04.1 LTS
 //Command     : generate_target SingleWriteBRAM.bd
 //Design      : SingleWriteBRAM
@@ -22,47 +22,47 @@ module SingleWriteBRAM
   input resetIn;
   output writeErrorOccured;
 
-  wire [31:0]Axi_Single_Read_0_M_AXI_ARADDR;
-  wire [2:0]Axi_Single_Read_0_M_AXI_ARPROT;
-  wire Axi_Single_Read_0_M_AXI_ARREADY;
-  wire Axi_Single_Read_0_M_AXI_ARVALID;
-  wire [31:0]Axi_Single_Read_0_M_AXI_AWADDR;
-  wire [2:0]Axi_Single_Read_0_M_AXI_AWPROT;
-  wire Axi_Single_Read_0_M_AXI_AWREADY;
-  wire Axi_Single_Read_0_M_AXI_AWVALID;
-  wire Axi_Single_Read_0_M_AXI_BREADY;
-  wire [1:0]Axi_Single_Read_0_M_AXI_BRESP;
-  wire Axi_Single_Read_0_M_AXI_BVALID;
-  wire [31:0]Axi_Single_Read_0_M_AXI_RDATA;
-  wire Axi_Single_Read_0_M_AXI_RREADY;
-  wire [1:0]Axi_Single_Read_0_M_AXI_RRESP;
-  wire Axi_Single_Read_0_M_AXI_RVALID;
-  wire [31:0]Axi_Single_Read_0_M_AXI_WDATA;
-  wire Axi_Single_Read_0_M_AXI_WREADY;
-  wire [3:0]Axi_Single_Read_0_M_AXI_WSTRB;
-  wire Axi_Single_Read_0_M_AXI_WVALID;
-  wire [31:0]Axi_Single_Read_0_readOutput;
-  wire [31:0]Axi_Single_Write_0_M_AXI_ARADDR;
-  wire [2:0]Axi_Single_Write_0_M_AXI_ARPROT;
-  wire Axi_Single_Write_0_M_AXI_ARREADY;
-  wire Axi_Single_Write_0_M_AXI_ARVALID;
-  wire [31:0]Axi_Single_Write_0_M_AXI_AWADDR;
-  wire [2:0]Axi_Single_Write_0_M_AXI_AWPROT;
-  wire Axi_Single_Write_0_M_AXI_AWREADY;
-  wire Axi_Single_Write_0_M_AXI_AWVALID;
-  wire Axi_Single_Write_0_M_AXI_BREADY;
-  wire [1:0]Axi_Single_Write_0_M_AXI_BRESP;
-  wire Axi_Single_Write_0_M_AXI_BVALID;
-  wire [31:0]Axi_Single_Write_0_M_AXI_RDATA;
-  wire Axi_Single_Write_0_M_AXI_RREADY;
-  wire [1:0]Axi_Single_Write_0_M_AXI_RRESP;
-  wire Axi_Single_Write_0_M_AXI_RVALID;
-  wire [31:0]Axi_Single_Write_0_M_AXI_WDATA;
-  wire Axi_Single_Write_0_M_AXI_WREADY;
-  wire [3:0]Axi_Single_Write_0_M_AXI_WSTRB;
-  wire Axi_Single_Write_0_M_AXI_WVALID;
-  wire Axi_Single_Write_0_writeDone;
-  wire Axi_Single_Write_0_writeErrorOccured;
+  wire [31:0]AXIMaster_Single_Read_0_M_AXI_ARADDR;
+  wire [2:0]AXIMaster_Single_Read_0_M_AXI_ARPROT;
+  wire AXIMaster_Single_Read_0_M_AXI_ARREADY;
+  wire AXIMaster_Single_Read_0_M_AXI_ARVALID;
+  wire [31:0]AXIMaster_Single_Read_0_M_AXI_AWADDR;
+  wire [2:0]AXIMaster_Single_Read_0_M_AXI_AWPROT;
+  wire AXIMaster_Single_Read_0_M_AXI_AWREADY;
+  wire AXIMaster_Single_Read_0_M_AXI_AWVALID;
+  wire AXIMaster_Single_Read_0_M_AXI_BREADY;
+  wire [1:0]AXIMaster_Single_Read_0_M_AXI_BRESP;
+  wire AXIMaster_Single_Read_0_M_AXI_BVALID;
+  wire [31:0]AXIMaster_Single_Read_0_M_AXI_RDATA;
+  wire AXIMaster_Single_Read_0_M_AXI_RREADY;
+  wire [1:0]AXIMaster_Single_Read_0_M_AXI_RRESP;
+  wire AXIMaster_Single_Read_0_M_AXI_RVALID;
+  wire [31:0]AXIMaster_Single_Read_0_M_AXI_WDATA;
+  wire AXIMaster_Single_Read_0_M_AXI_WREADY;
+  wire [3:0]AXIMaster_Single_Read_0_M_AXI_WSTRB;
+  wire AXIMaster_Single_Read_0_M_AXI_WVALID;
+  wire [31:0]AXIMaster_Single_Read_0_readOutput;
+  wire [31:0]AXIMaster_Single_Wri_0_M_AXI_ARADDR;
+  wire [2:0]AXIMaster_Single_Wri_0_M_AXI_ARPROT;
+  wire AXIMaster_Single_Wri_0_M_AXI_ARREADY;
+  wire AXIMaster_Single_Wri_0_M_AXI_ARVALID;
+  wire [31:0]AXIMaster_Single_Wri_0_M_AXI_AWADDR;
+  wire [2:0]AXIMaster_Single_Wri_0_M_AXI_AWPROT;
+  wire AXIMaster_Single_Wri_0_M_AXI_AWREADY;
+  wire AXIMaster_Single_Wri_0_M_AXI_AWVALID;
+  wire AXIMaster_Single_Wri_0_M_AXI_BREADY;
+  wire [1:0]AXIMaster_Single_Wri_0_M_AXI_BRESP;
+  wire AXIMaster_Single_Wri_0_M_AXI_BVALID;
+  wire [31:0]AXIMaster_Single_Wri_0_M_AXI_RDATA;
+  wire AXIMaster_Single_Wri_0_M_AXI_RREADY;
+  wire [1:0]AXIMaster_Single_Wri_0_M_AXI_RRESP;
+  wire AXIMaster_Single_Wri_0_M_AXI_RVALID;
+  wire [31:0]AXIMaster_Single_Wri_0_M_AXI_WDATA;
+  wire AXIMaster_Single_Wri_0_M_AXI_WREADY;
+  wire [3:0]AXIMaster_Single_Wri_0_M_AXI_WSTRB;
+  wire AXIMaster_Single_Wri_0_M_AXI_WVALID;
+  wire AXIMaster_Single_Wri_0_writeDone;
+  wire AXIMaster_Single_Wri_0_writeErrorOccured;
   wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
@@ -122,59 +122,59 @@ module SingleWriteBRAM
 
   assign clkIn_1 = clkIn;
   assign initWrite_1 = initWrite;
-  assign readOutput[31:0] = Axi_Single_Read_0_readOutput;
+  assign readOutput[31:0] = AXIMaster_Single_Read_0_readOutput;
   assign resetIn_1 = resetIn;
-  assign writeErrorOccured = Axi_Single_Write_0_writeErrorOccured;
-  SingleWriteBRAM_Axi_Single_Read_0_0 Axi_Single_Read_0
+  assign writeErrorOccured = AXIMaster_Single_Wri_0_writeErrorOccured;
+  SingleWriteBRAM_AXIMaster_Single_Read_0_0 AXIMaster_Single_Read_0
        (.M_AXI_ACLK(clkIn_1),
-        .M_AXI_ARADDR(Axi_Single_Read_0_M_AXI_ARADDR),
+        .M_AXI_ARADDR(AXIMaster_Single_Read_0_M_AXI_ARADDR),
         .M_AXI_ARESETN(resetIn_1),
-        .M_AXI_ARPROT(Axi_Single_Read_0_M_AXI_ARPROT),
-        .M_AXI_ARREADY(Axi_Single_Read_0_M_AXI_ARREADY),
-        .M_AXI_ARVALID(Axi_Single_Read_0_M_AXI_ARVALID),
-        .M_AXI_AWADDR(Axi_Single_Read_0_M_AXI_AWADDR),
-        .M_AXI_AWPROT(Axi_Single_Read_0_M_AXI_AWPROT),
-        .M_AXI_AWREADY(Axi_Single_Read_0_M_AXI_AWREADY),
-        .M_AXI_AWVALID(Axi_Single_Read_0_M_AXI_AWVALID),
-        .M_AXI_BREADY(Axi_Single_Read_0_M_AXI_BREADY),
-        .M_AXI_BRESP(Axi_Single_Read_0_M_AXI_BRESP),
-        .M_AXI_BVALID(Axi_Single_Read_0_M_AXI_BVALID),
-        .M_AXI_RDATA(Axi_Single_Read_0_M_AXI_RDATA),
-        .M_AXI_RREADY(Axi_Single_Read_0_M_AXI_RREADY),
-        .M_AXI_RRESP(Axi_Single_Read_0_M_AXI_RRESP),
-        .M_AXI_RVALID(Axi_Single_Read_0_M_AXI_RVALID),
-        .M_AXI_WDATA(Axi_Single_Read_0_M_AXI_WDATA),
-        .M_AXI_WREADY(Axi_Single_Read_0_M_AXI_WREADY),
-        .M_AXI_WSTRB(Axi_Single_Read_0_M_AXI_WSTRB),
-        .M_AXI_WVALID(Axi_Single_Read_0_M_AXI_WVALID),
-        .initRead(Axi_Single_Write_0_writeDone),
+        .M_AXI_ARPROT(AXIMaster_Single_Read_0_M_AXI_ARPROT),
+        .M_AXI_ARREADY(AXIMaster_Single_Read_0_M_AXI_ARREADY),
+        .M_AXI_ARVALID(AXIMaster_Single_Read_0_M_AXI_ARVALID),
+        .M_AXI_AWADDR(AXIMaster_Single_Read_0_M_AXI_AWADDR),
+        .M_AXI_AWPROT(AXIMaster_Single_Read_0_M_AXI_AWPROT),
+        .M_AXI_AWREADY(AXIMaster_Single_Read_0_M_AXI_AWREADY),
+        .M_AXI_AWVALID(AXIMaster_Single_Read_0_M_AXI_AWVALID),
+        .M_AXI_BREADY(AXIMaster_Single_Read_0_M_AXI_BREADY),
+        .M_AXI_BRESP(AXIMaster_Single_Read_0_M_AXI_BRESP),
+        .M_AXI_BVALID(AXIMaster_Single_Read_0_M_AXI_BVALID),
+        .M_AXI_RDATA(AXIMaster_Single_Read_0_M_AXI_RDATA),
+        .M_AXI_RREADY(AXIMaster_Single_Read_0_M_AXI_RREADY),
+        .M_AXI_RRESP(AXIMaster_Single_Read_0_M_AXI_RRESP),
+        .M_AXI_RVALID(AXIMaster_Single_Read_0_M_AXI_RVALID),
+        .M_AXI_WDATA(AXIMaster_Single_Read_0_M_AXI_WDATA),
+        .M_AXI_WREADY(AXIMaster_Single_Read_0_M_AXI_WREADY),
+        .M_AXI_WSTRB(AXIMaster_Single_Read_0_M_AXI_WSTRB),
+        .M_AXI_WVALID(AXIMaster_Single_Read_0_M_AXI_WVALID),
+        .initRead(AXIMaster_Single_Wri_0_writeDone),
         .readAddress(xlconstant_0_dout),
-        .readOutput(Axi_Single_Read_0_readOutput));
-  SingleWriteBRAM_Axi_Single_Write_0_0 Axi_Single_Write_0
+        .readOutput(AXIMaster_Single_Read_0_readOutput));
+  SingleWriteBRAM_AXIMaster_Single_Wri_0_0 AXIMaster_Single_Wri_0
        (.M_AXI_ACLK(clkIn_1),
-        .M_AXI_ARADDR(Axi_Single_Write_0_M_AXI_ARADDR),
+        .M_AXI_ARADDR(AXIMaster_Single_Wri_0_M_AXI_ARADDR),
         .M_AXI_ARESETN(resetIn_1),
-        .M_AXI_ARPROT(Axi_Single_Write_0_M_AXI_ARPROT),
-        .M_AXI_ARREADY(Axi_Single_Write_0_M_AXI_ARREADY),
-        .M_AXI_ARVALID(Axi_Single_Write_0_M_AXI_ARVALID),
-        .M_AXI_AWADDR(Axi_Single_Write_0_M_AXI_AWADDR),
-        .M_AXI_AWPROT(Axi_Single_Write_0_M_AXI_AWPROT),
-        .M_AXI_AWREADY(Axi_Single_Write_0_M_AXI_AWREADY),
-        .M_AXI_AWVALID(Axi_Single_Write_0_M_AXI_AWVALID),
-        .M_AXI_BREADY(Axi_Single_Write_0_M_AXI_BREADY),
-        .M_AXI_BRESP(Axi_Single_Write_0_M_AXI_BRESP),
-        .M_AXI_BVALID(Axi_Single_Write_0_M_AXI_BVALID),
-        .M_AXI_RDATA(Axi_Single_Write_0_M_AXI_RDATA),
-        .M_AXI_RREADY(Axi_Single_Write_0_M_AXI_RREADY),
-        .M_AXI_RRESP(Axi_Single_Write_0_M_AXI_RRESP),
-        .M_AXI_RVALID(Axi_Single_Write_0_M_AXI_RVALID),
-        .M_AXI_WDATA(Axi_Single_Write_0_M_AXI_WDATA),
-        .M_AXI_WREADY(Axi_Single_Write_0_M_AXI_WREADY),
-        .M_AXI_WSTRB(Axi_Single_Write_0_M_AXI_WSTRB),
-        .M_AXI_WVALID(Axi_Single_Write_0_M_AXI_WVALID),
+        .M_AXI_ARPROT(AXIMaster_Single_Wri_0_M_AXI_ARPROT),
+        .M_AXI_ARREADY(AXIMaster_Single_Wri_0_M_AXI_ARREADY),
+        .M_AXI_ARVALID(AXIMaster_Single_Wri_0_M_AXI_ARVALID),
+        .M_AXI_AWADDR(AXIMaster_Single_Wri_0_M_AXI_AWADDR),
+        .M_AXI_AWPROT(AXIMaster_Single_Wri_0_M_AXI_AWPROT),
+        .M_AXI_AWREADY(AXIMaster_Single_Wri_0_M_AXI_AWREADY),
+        .M_AXI_AWVALID(AXIMaster_Single_Wri_0_M_AXI_AWVALID),
+        .M_AXI_BREADY(AXIMaster_Single_Wri_0_M_AXI_BREADY),
+        .M_AXI_BRESP(AXIMaster_Single_Wri_0_M_AXI_BRESP),
+        .M_AXI_BVALID(AXIMaster_Single_Wri_0_M_AXI_BVALID),
+        .M_AXI_RDATA(AXIMaster_Single_Wri_0_M_AXI_RDATA),
+        .M_AXI_RREADY(AXIMaster_Single_Wri_0_M_AXI_RREADY),
+        .M_AXI_RRESP(AXIMaster_Single_Wri_0_M_AXI_RRESP),
+        .M_AXI_RVALID(AXIMaster_Single_Wri_0_M_AXI_RVALID),
+        .M_AXI_WDATA(AXIMaster_Single_Wri_0_M_AXI_WDATA),
+        .M_AXI_WREADY(AXIMaster_Single_Wri_0_M_AXI_WREADY),
+        .M_AXI_WSTRB(AXIMaster_Single_Wri_0_M_AXI_WSTRB),
+        .M_AXI_WVALID(AXIMaster_Single_Wri_0_M_AXI_WVALID),
         .initWrite(initWrite_1),
-        .writeDone(Axi_Single_Write_0_writeDone),
-        .writeErrorOccured(Axi_Single_Write_0_writeErrorOccured));
+        .writeDone(AXIMaster_Single_Wri_0_writeDone),
+        .writeErrorOccured(AXIMaster_Single_Wri_0_writeErrorOccured));
   SingleWriteBRAM_axi_bram_ctrl_0_0 axi_bram_ctrl_0
        (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
         .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
@@ -259,25 +259,25 @@ module SingleWriteBRAM
         .M00_AXI_wvalid(axi_mem_intercon_M00_AXI_WVALID),
         .S00_ACLK(clkIn_1),
         .S00_ARESETN(resetIn_1),
-        .S00_AXI_araddr(Axi_Single_Write_0_M_AXI_ARADDR),
-        .S00_AXI_arprot(Axi_Single_Write_0_M_AXI_ARPROT),
-        .S00_AXI_arready(Axi_Single_Write_0_M_AXI_ARREADY),
-        .S00_AXI_arvalid(Axi_Single_Write_0_M_AXI_ARVALID),
-        .S00_AXI_awaddr(Axi_Single_Write_0_M_AXI_AWADDR),
-        .S00_AXI_awprot(Axi_Single_Write_0_M_AXI_AWPROT),
-        .S00_AXI_awready(Axi_Single_Write_0_M_AXI_AWREADY),
-        .S00_AXI_awvalid(Axi_Single_Write_0_M_AXI_AWVALID),
-        .S00_AXI_bready(Axi_Single_Write_0_M_AXI_BREADY),
-        .S00_AXI_bresp(Axi_Single_Write_0_M_AXI_BRESP),
-        .S00_AXI_bvalid(Axi_Single_Write_0_M_AXI_BVALID),
-        .S00_AXI_rdata(Axi_Single_Write_0_M_AXI_RDATA),
-        .S00_AXI_rready(Axi_Single_Write_0_M_AXI_RREADY),
-        .S00_AXI_rresp(Axi_Single_Write_0_M_AXI_RRESP),
-        .S00_AXI_rvalid(Axi_Single_Write_0_M_AXI_RVALID),
-        .S00_AXI_wdata(Axi_Single_Write_0_M_AXI_WDATA),
-        .S00_AXI_wready(Axi_Single_Write_0_M_AXI_WREADY),
-        .S00_AXI_wstrb(Axi_Single_Write_0_M_AXI_WSTRB),
-        .S00_AXI_wvalid(Axi_Single_Write_0_M_AXI_WVALID));
+        .S00_AXI_araddr(AXIMaster_Single_Wri_0_M_AXI_ARADDR),
+        .S00_AXI_arprot(AXIMaster_Single_Wri_0_M_AXI_ARPROT),
+        .S00_AXI_arready(AXIMaster_Single_Wri_0_M_AXI_ARREADY),
+        .S00_AXI_arvalid(AXIMaster_Single_Wri_0_M_AXI_ARVALID),
+        .S00_AXI_awaddr(AXIMaster_Single_Wri_0_M_AXI_AWADDR),
+        .S00_AXI_awprot(AXIMaster_Single_Wri_0_M_AXI_AWPROT),
+        .S00_AXI_awready(AXIMaster_Single_Wri_0_M_AXI_AWREADY),
+        .S00_AXI_awvalid(AXIMaster_Single_Wri_0_M_AXI_AWVALID),
+        .S00_AXI_bready(AXIMaster_Single_Wri_0_M_AXI_BREADY),
+        .S00_AXI_bresp(AXIMaster_Single_Wri_0_M_AXI_BRESP),
+        .S00_AXI_bvalid(AXIMaster_Single_Wri_0_M_AXI_BVALID),
+        .S00_AXI_rdata(AXIMaster_Single_Wri_0_M_AXI_RDATA),
+        .S00_AXI_rready(AXIMaster_Single_Wri_0_M_AXI_RREADY),
+        .S00_AXI_rresp(AXIMaster_Single_Wri_0_M_AXI_RRESP),
+        .S00_AXI_rvalid(AXIMaster_Single_Wri_0_M_AXI_RVALID),
+        .S00_AXI_wdata(AXIMaster_Single_Wri_0_M_AXI_WDATA),
+        .S00_AXI_wready(AXIMaster_Single_Wri_0_M_AXI_WREADY),
+        .S00_AXI_wstrb(AXIMaster_Single_Wri_0_M_AXI_WSTRB),
+        .S00_AXI_wvalid(AXIMaster_Single_Wri_0_M_AXI_WVALID));
   SingleWriteBRAM_axi_mem_intercon_1_0 axi_mem_intercon_1
        (.ACLK(clkIn_1),
         .ARESETN(resetIn_1),
@@ -304,25 +304,25 @@ module SingleWriteBRAM
         .M00_AXI_wvalid(axi_mem_intercon_1_M00_AXI_WVALID),
         .S00_ACLK(clkIn_1),
         .S00_ARESETN(resetIn_1),
-        .S00_AXI_araddr(Axi_Single_Read_0_M_AXI_ARADDR),
-        .S00_AXI_arprot(Axi_Single_Read_0_M_AXI_ARPROT),
-        .S00_AXI_arready(Axi_Single_Read_0_M_AXI_ARREADY),
-        .S00_AXI_arvalid(Axi_Single_Read_0_M_AXI_ARVALID),
-        .S00_AXI_awaddr(Axi_Single_Read_0_M_AXI_AWADDR),
-        .S00_AXI_awprot(Axi_Single_Read_0_M_AXI_AWPROT),
-        .S00_AXI_awready(Axi_Single_Read_0_M_AXI_AWREADY),
-        .S00_AXI_awvalid(Axi_Single_Read_0_M_AXI_AWVALID),
-        .S00_AXI_bready(Axi_Single_Read_0_M_AXI_BREADY),
-        .S00_AXI_bresp(Axi_Single_Read_0_M_AXI_BRESP),
-        .S00_AXI_bvalid(Axi_Single_Read_0_M_AXI_BVALID),
-        .S00_AXI_rdata(Axi_Single_Read_0_M_AXI_RDATA),
-        .S00_AXI_rready(Axi_Single_Read_0_M_AXI_RREADY),
-        .S00_AXI_rresp(Axi_Single_Read_0_M_AXI_RRESP),
-        .S00_AXI_rvalid(Axi_Single_Read_0_M_AXI_RVALID),
-        .S00_AXI_wdata(Axi_Single_Read_0_M_AXI_WDATA),
-        .S00_AXI_wready(Axi_Single_Read_0_M_AXI_WREADY),
-        .S00_AXI_wstrb(Axi_Single_Read_0_M_AXI_WSTRB),
-        .S00_AXI_wvalid(Axi_Single_Read_0_M_AXI_WVALID));
+        .S00_AXI_araddr(AXIMaster_Single_Read_0_M_AXI_ARADDR),
+        .S00_AXI_arprot(AXIMaster_Single_Read_0_M_AXI_ARPROT),
+        .S00_AXI_arready(AXIMaster_Single_Read_0_M_AXI_ARREADY),
+        .S00_AXI_arvalid(AXIMaster_Single_Read_0_M_AXI_ARVALID),
+        .S00_AXI_awaddr(AXIMaster_Single_Read_0_M_AXI_AWADDR),
+        .S00_AXI_awprot(AXIMaster_Single_Read_0_M_AXI_AWPROT),
+        .S00_AXI_awready(AXIMaster_Single_Read_0_M_AXI_AWREADY),
+        .S00_AXI_awvalid(AXIMaster_Single_Read_0_M_AXI_AWVALID),
+        .S00_AXI_bready(AXIMaster_Single_Read_0_M_AXI_BREADY),
+        .S00_AXI_bresp(AXIMaster_Single_Read_0_M_AXI_BRESP),
+        .S00_AXI_bvalid(AXIMaster_Single_Read_0_M_AXI_BVALID),
+        .S00_AXI_rdata(AXIMaster_Single_Read_0_M_AXI_RDATA),
+        .S00_AXI_rready(AXIMaster_Single_Read_0_M_AXI_RREADY),
+        .S00_AXI_rresp(AXIMaster_Single_Read_0_M_AXI_RRESP),
+        .S00_AXI_rvalid(AXIMaster_Single_Read_0_M_AXI_RVALID),
+        .S00_AXI_wdata(AXIMaster_Single_Read_0_M_AXI_WDATA),
+        .S00_AXI_wready(AXIMaster_Single_Read_0_M_AXI_WREADY),
+        .S00_AXI_wstrb(AXIMaster_Single_Read_0_M_AXI_WSTRB),
+        .S00_AXI_wvalid(AXIMaster_Single_Read_0_M_AXI_WVALID));
   SingleWriteBRAM_blk_mem_gen_0_0 blk_mem_gen_0
        (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
         .addrb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_1_BRAM_PORTA_ADDR}),

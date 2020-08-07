@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# Axi_Single_Read, Axi_Single_Write
+# AXIMaster_Single_Read, AXIMaster_Single_Write
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -174,24 +174,24 @@ proc create_root_design { parentCell } {
   set resetIn [ create_bd_port -dir I resetIn ]
   set writeErrorOccured [ create_bd_port -dir O writeErrorOccured ]
 
-  # Create instance: Axi_Single_Read_0, and set properties
-  set block_name Axi_Single_Read
-  set block_cell_name Axi_Single_Read_0
-  if { [catch {set Axi_Single_Read_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: AXIMaster_Single_Read_0, and set properties
+  set block_name AXIMaster_Single_Read
+  set block_cell_name AXIMaster_Single_Read_0
+  if { [catch {set AXIMaster_Single_Read_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $Axi_Single_Read_0 eq "" } {
+   } elseif { $AXIMaster_Single_Read_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
   
-  # Create instance: Axi_Single_Write_0, and set properties
-  set block_name Axi_Single_Write
-  set block_cell_name Axi_Single_Write_0
-  if { [catch {set Axi_Single_Write_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: AXIMaster_Single_Wri_0, and set properties
+  set block_name AXIMaster_Single_Write
+  set block_cell_name AXIMaster_Single_Wri_0
+  if { [catch {set AXIMaster_Single_Wri_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $Axi_Single_Write_0 eq "" } {
+   } elseif { $AXIMaster_Single_Wri_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -245,25 +245,25 @@ proc create_root_design { parentCell } {
  ] $xlconstant_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net Axi_Single_Read_0_M_AXI [get_bd_intf_pins Axi_Single_Read_0/M_AXI] [get_bd_intf_pins axi_mem_intercon_1/S00_AXI]
-  connect_bd_intf_net -intf_net Axi_Single_Write_0_M_AXI [get_bd_intf_pins Axi_Single_Write_0/M_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
+  connect_bd_intf_net -intf_net AXIMaster_Single_Read_0_M_AXI [get_bd_intf_pins AXIMaster_Single_Read_0/M_AXI] [get_bd_intf_pins axi_mem_intercon_1/S00_AXI]
+  connect_bd_intf_net -intf_net AXIMaster_Single_Wri_0_M_AXI [get_bd_intf_pins AXIMaster_Single_Wri_0/M_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_bram_ctrl_1_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTB]
   connect_bd_intf_net -intf_net axi_mem_intercon_1_M00_AXI [get_bd_intf_pins axi_bram_ctrl_1/S_AXI] [get_bd_intf_pins axi_mem_intercon_1/M00_AXI]
   connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_mem_intercon/M00_AXI]
 
   # Create port connections
-  connect_bd_net -net Axi_Single_Read_0_readOutput [get_bd_ports readOutput] [get_bd_pins Axi_Single_Read_0/readOutput]
-  connect_bd_net -net Axi_Single_Write_0_writeDone [get_bd_pins Axi_Single_Read_0/initRead] [get_bd_pins Axi_Single_Write_0/writeDone]
-  connect_bd_net -net Axi_Single_Write_0_writeErrorOccured [get_bd_ports writeErrorOccured] [get_bd_pins Axi_Single_Write_0/writeErrorOccured]
-  connect_bd_net -net clkIn_1 [get_bd_ports clkIn] [get_bd_pins Axi_Single_Read_0/M_AXI_ACLK] [get_bd_pins Axi_Single_Write_0/M_AXI_ACLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins axi_mem_intercon_1/ACLK] [get_bd_pins axi_mem_intercon_1/M00_ACLK] [get_bd_pins axi_mem_intercon_1/S00_ACLK]
-  connect_bd_net -net initWrite_1 [get_bd_ports initWrite] [get_bd_pins Axi_Single_Write_0/initWrite]
-  connect_bd_net -net resetIn_1 [get_bd_ports resetIn] [get_bd_pins Axi_Single_Read_0/M_AXI_ARESETN] [get_bd_pins Axi_Single_Write_0/M_AXI_ARESETN] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins axi_mem_intercon_1/ARESETN] [get_bd_pins axi_mem_intercon_1/M00_ARESETN] [get_bd_pins axi_mem_intercon_1/S00_ARESETN]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins Axi_Single_Read_0/readAddress] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net AXIMaster_Single_Read_0_readOutput [get_bd_ports readOutput] [get_bd_pins AXIMaster_Single_Read_0/readOutput]
+  connect_bd_net -net AXIMaster_Single_Wri_0_writeDone [get_bd_pins AXIMaster_Single_Read_0/initRead] [get_bd_pins AXIMaster_Single_Wri_0/writeDone]
+  connect_bd_net -net AXIMaster_Single_Wri_0_writeErrorOccured [get_bd_ports writeErrorOccured] [get_bd_pins AXIMaster_Single_Wri_0/writeErrorOccured]
+  connect_bd_net -net clkIn_1 [get_bd_ports clkIn] [get_bd_pins AXIMaster_Single_Read_0/M_AXI_ACLK] [get_bd_pins AXIMaster_Single_Wri_0/M_AXI_ACLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins axi_mem_intercon_1/ACLK] [get_bd_pins axi_mem_intercon_1/M00_ACLK] [get_bd_pins axi_mem_intercon_1/S00_ACLK]
+  connect_bd_net -net initWrite_1 [get_bd_ports initWrite] [get_bd_pins AXIMaster_Single_Wri_0/initWrite]
+  connect_bd_net -net resetIn_1 [get_bd_ports resetIn] [get_bd_pins AXIMaster_Single_Read_0/M_AXI_ARESETN] [get_bd_pins AXIMaster_Single_Wri_0/M_AXI_ARESETN] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins axi_mem_intercon_1/ARESETN] [get_bd_pins axi_mem_intercon_1/M00_ARESETN] [get_bd_pins axi_mem_intercon_1/S00_ARESETN]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins AXIMaster_Single_Read_0/readAddress] [get_bd_pins xlconstant_0/dout]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces Axi_Single_Read_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
-  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces Axi_Single_Write_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces AXIMaster_Single_Read_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
+  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces AXIMaster_Single_Wri_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
 
 
   # Restore current instance

@@ -47,17 +47,17 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:module_ref:Axi_Single_Write:1.0
+// IP VLNV: xilinx.com:module_ref:AXIMaster_Single_Read:1.0
 // IP Revision: 1
 
 `timescale 1ns/1ps
 
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module SingleWriteBRAM_Axi_Single_Write_0_0 (
-  initWrite,
-  writeDone,
-  writeErrorOccured,
+module SingleWriteBRAM_AXIMaster_Single_Read_0_0 (
+  initRead,
+  readAddress,
+  readOutput,
   M_AXI_ACLK,
   M_AXI_ARESETN,
   M_AXI_AWADDR,
@@ -81,9 +81,9 @@ module SingleWriteBRAM_Axi_Single_Write_0_0 (
   M_AXI_RREADY
 );
 
-input wire initWrite;
-output wire writeDone;
-output wire writeErrorOccured;
+input wire initRead;
+input wire [31 : 0] readAddress;
+output wire [31 : 0] readOutput;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_ACLK, ASSOCIATED_BUSIF M_AXI, ASSOCIATED_RESET M_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN SingleWriteBRAM_clkIn, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK" *)
 input wire M_AXI_ACLK;
@@ -131,10 +131,10 @@ DS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire M_AXI_RREADY;
 
-  Axi_Single_Write inst (
-    .initWrite(initWrite),
-    .writeDone(writeDone),
-    .writeErrorOccured(writeErrorOccured),
+  AXIMaster_Single_Read inst (
+    .initRead(initRead),
+    .readAddress(readAddress),
+    .readOutput(readOutput),
     .M_AXI_ACLK(M_AXI_ACLK),
     .M_AXI_ARESETN(M_AXI_ARESETN),
     .M_AXI_AWADDR(M_AXI_AWADDR),

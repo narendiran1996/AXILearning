@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Sat Aug  8 03:57:50 2020
+//Date        : Sat Aug  8 04:32:13 2020
 //Host        : narendiran-X556UQK running 64-bit Ubuntu 20.04.1 LTS
 //Command     : generate_target SingleReadBRAM_wrapper.bd
 //Design      : SingleReadBRAM_wrapper

@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 
-module Axi_Single_Write
+module AXIMaster_Single_Write
 (
     input wire  initWrite,
     output wire writeDone,

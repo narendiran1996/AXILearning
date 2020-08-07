@@ -3,7 +3,7 @@
 	"modules": {
 		"SingleWriteBRAM": {
 			"proto_instances": {
-				"/Axi_Single_Read_0/M_AXI": {
+				"/AXIMaster_Single_Read_0/M_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "M_AXI_ACLK"},
@@ -29,7 +29,7 @@
 						"WVALID": { "actual": "M_AXI_WVALID"}
 					}
 				},
-				"/Axi_Single_Write_0/M_AXI": {
+				"/AXIMaster_Single_Wri_0/M_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
 						"ACLK": { "actual": "M_AXI_ACLK"},

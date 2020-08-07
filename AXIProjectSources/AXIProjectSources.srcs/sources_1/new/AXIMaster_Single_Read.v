@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 
-module Axi_Single_Read
+module AXIMaster_Single_Read
 (
     input wire  initRead,    
     input wire [31:0]readAddress,

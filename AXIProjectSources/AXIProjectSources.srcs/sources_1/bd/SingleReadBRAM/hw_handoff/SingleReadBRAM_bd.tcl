@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# Axi_Single_Read
+# AXIMaster_Single_Read
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -171,13 +171,13 @@ proc create_root_design { parentCell } {
   set readAddress [ create_bd_port -dir I -from 31 -to 0 readAddress ]
   set readOutput [ create_bd_port -dir O -from 31 -to 0 readOutput ]
 
-  # Create instance: Axi_Single_Read_0, and set properties
-  set block_name Axi_Single_Read
-  set block_cell_name Axi_Single_Read_0
-  if { [catch {set Axi_Single_Read_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: AXIMaster_Single_Read_0, and set properties
+  set block_name AXIMaster_Single_Read
+  set block_cell_name AXIMaster_Single_Read_0
+  if { [catch {set AXIMaster_Single_Read_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $Axi_Single_Read_0 eq "" } {
+   } elseif { $AXIMaster_Single_Read_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -207,19 +207,19 @@ proc create_root_design { parentCell } {
  ] $blk_mem_gen_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net Axi_Single_Read_0_M_AXI [get_bd_intf_pins Axi_Single_Read_0/M_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
+  connect_bd_intf_net -intf_net AXIMaster_Single_Read_0_M_AXI [get_bd_intf_pins AXIMaster_Single_Read_0/M_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_mem_intercon/M00_AXI]
 
   # Create port connections
-  connect_bd_net -net Axi_Single_Read_0_readOutput [get_bd_ports readOutput] [get_bd_pins Axi_Single_Read_0/readOutput]
-  connect_bd_net -net M_AXI_ACLK_0_1 [get_bd_ports M_AXI_ACLK_0] [get_bd_pins Axi_Single_Read_0/M_AXI_ACLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK]
-  connect_bd_net -net M_AXI_ARESETN_0_1 [get_bd_ports M_AXI_ARESETN_0] [get_bd_pins Axi_Single_Read_0/M_AXI_ARESETN] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN]
-  connect_bd_net -net initRead_0_1 [get_bd_ports initRead_0] [get_bd_pins Axi_Single_Read_0/initRead]
-  connect_bd_net -net readAddress_1 [get_bd_ports readAddress] [get_bd_pins Axi_Single_Read_0/readAddress]
+  connect_bd_net -net AXIMaster_Single_Read_0_readOutput [get_bd_ports readOutput] [get_bd_pins AXIMaster_Single_Read_0/readOutput]
+  connect_bd_net -net M_AXI_ACLK_0_1 [get_bd_ports M_AXI_ACLK_0] [get_bd_pins AXIMaster_Single_Read_0/M_AXI_ACLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK]
+  connect_bd_net -net M_AXI_ARESETN_0_1 [get_bd_ports M_AXI_ARESETN_0] [get_bd_pins AXIMaster_Single_Read_0/M_AXI_ARESETN] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN]
+  connect_bd_net -net initRead_0_1 [get_bd_ports initRead_0] [get_bd_pins AXIMaster_Single_Read_0/initRead]
+  connect_bd_net -net readAddress_1 [get_bd_ports readAddress] [get_bd_pins AXIMaster_Single_Read_0/readAddress]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00001000 -offset 0xC0000000 [get_bd_addr_spaces Axi_Single_Read_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00002000 -offset 0xC0000000 [get_bd_addr_spaces AXIMaster_Single_Read_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
 
 
   # Restore current instance
