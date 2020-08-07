@@ -56,6 +56,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module SingleReadBRAM_Axi_Single_Read_0_0 (
   initRead,
+  readAddress,
   M_AXI_ACLK,
   M_AXI_ARESETN,
   M_AXI_AWADDR,
@@ -80,6 +81,7 @@ module SingleReadBRAM_Axi_Single_Read_0_0 (
 );
 
 input wire initRead;
+input wire [31 : 0] readAddress;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_ACLK, ASSOCIATED_BUSIF M_AXI, ASSOCIATED_RESET M_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN SingleReadBRAM_M_AXI_ACLK_0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK" *)
 input wire M_AXI_ACLK;
@@ -127,10 +129,9 @@ _THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire M_AXI_RREADY;
 
-  Axi_Single_Read #(
-    .READ_ADDRESS(32'H00000000)
-  ) inst (
+  Axi_Single_Read inst (
     .initRead(initRead),
+    .readAddress(readAddress),
     .M_AXI_ACLK(M_AXI_ACLK),
     .M_AXI_ARESETN(M_AXI_ARESETN),
     .M_AXI_AWADDR(M_AXI_AWADDR),

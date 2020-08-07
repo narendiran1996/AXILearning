@@ -2,9 +2,10 @@
 
 
 module Axi_Single_Read
-#(parameter READ_ADDRESS = 32'h00000000)
 (
     input wire  initRead,
+    
+    input wire [31:0]readAddress,
         
     //Global Signals
     input wire  M_AXI_ACLK,
@@ -28,7 +29,7 @@ module Axi_Single_Read
     output wire [2 : 0] M_AXI_ARPROT,
     output wire  M_AXI_ARVALID,
     input wire  M_AXI_ARREADY,
-    // Read Data interface (issued by slave)
+    // Read Data interface (issued by slave):
     input wire [32-1 : 0] M_AXI_RDATA,
     input wire [1 : 0] M_AXI_RRESP,
     input wire  M_AXI_RVALID,
@@ -39,7 +40,7 @@ reg  	axi_arvalid;
 reg  	axi_rready;
 reg [32-1 : 0]axi_araddr;
 
-assign M_AXI_ARADDR	= READ_ADDRESS;
+assign M_AXI_ARADDR	= readAddress;
 assign M_AXI_ARVALID	= axi_arvalid;
 assign M_AXI_ARPROT	= 3'b001;
 assign M_AXI_RREADY	= axi_rready;

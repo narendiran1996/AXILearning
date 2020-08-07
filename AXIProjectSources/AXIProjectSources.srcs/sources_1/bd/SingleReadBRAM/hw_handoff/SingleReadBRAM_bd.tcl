@@ -168,6 +168,7 @@ proc create_root_design { parentCell } {
   set M_AXI_ACLK_0 [ create_bd_port -dir I -type clk M_AXI_ACLK_0 ]
   set M_AXI_ARESETN_0 [ create_bd_port -dir I -type rst M_AXI_ARESETN_0 ]
   set initRead_0 [ create_bd_port -dir I initRead_0 ]
+  set readAddress [ create_bd_port -dir I -from 31 -to 0 readAddress ]
 
   # Create instance: Axi_Single_Read_0, and set properties
   set block_name Axi_Single_Read
@@ -213,6 +214,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net M_AXI_ACLK_0_1 [get_bd_ports M_AXI_ACLK_0] [get_bd_pins Axi_Single_Read_0/M_AXI_ACLK] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK]
   connect_bd_net -net M_AXI_ARESETN_0_1 [get_bd_ports M_AXI_ARESETN_0] [get_bd_pins Axi_Single_Read_0/M_AXI_ARESETN] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN]
   connect_bd_net -net initRead_0_1 [get_bd_ports initRead_0] [get_bd_pins Axi_Single_Read_0/initRead]
+  connect_bd_net -net readAddress_1 [get_bd_ports readAddress] [get_bd_pins Axi_Single_Read_0/readAddress]
 
   # Create address segments
   create_bd_addr_seg -range 0x00001000 -offset 0xC0000000 [get_bd_addr_spaces Axi_Single_Read_0/M_AXI] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0

@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="SingleReadBRAM" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596803899"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596803899"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1596803899"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1596803899"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596835297"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596835297"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1596835297"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1596835297"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/SingleReadBRAM_axi_bram_ctrl_0_0/SingleReadBRAM_axi_bram_ctrl_0_0.xci" Type="IP">
         <Instance HierarchyPath="axi_bram_ctrl_0"/>

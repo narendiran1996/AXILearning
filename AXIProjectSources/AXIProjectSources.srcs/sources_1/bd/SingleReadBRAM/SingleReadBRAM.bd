@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDFCF9AE7EE7B1D26",
+      "boundary_crc": "0xA310D6E01BDBC1",
       "device": "xc7z010clg400-1",
       "name": "SingleReadBRAM",
       "synth_flow_mode": "Hierarchical",
@@ -59,6 +59,11 @@
             "value_src": "default"
           }
         }
+      },
+      "readAddress": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
       }
     },
     "components": {
@@ -494,6 +499,11 @@
           },
           "initRead": {
             "direction": "I"
+          },
+          "readAddress": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
           }
         },
         "addressing": {
@@ -507,10 +517,10 @@
       }
     },
     "interface_nets": {
-      "axi_bram_ctrl_0_BRAM_PORTA": {
+      "Axi_Single_Read_0_M_AXI": {
         "interface_ports": [
-          "blk_mem_gen_0/BRAM_PORTA",
-          "axi_bram_ctrl_0/BRAM_PORTA"
+          "Axi_Single_Read_0/M_AXI",
+          "axi_mem_intercon/S00_AXI"
         ]
       },
       "axi_mem_intercon_M00_AXI": {
@@ -519,10 +529,10 @@
           "axi_bram_ctrl_0/S_AXI"
         ]
       },
-      "Axi_Single_Read_0_M_AXI": {
+      "axi_bram_ctrl_0_BRAM_PORTA": {
         "interface_ports": [
-          "Axi_Single_Read_0/M_AXI",
-          "axi_mem_intercon/S00_AXI"
+          "blk_mem_gen_0/BRAM_PORTA",
+          "axi_bram_ctrl_0/BRAM_PORTA"
         ]
       }
     },
@@ -536,21 +546,27 @@
       "M_AXI_ACLK_0_1": {
         "ports": [
           "M_AXI_ACLK_0",
-          "Axi_Single_Read_0/M_AXI_ACLK",
           "axi_mem_intercon/ACLK",
           "axi_mem_intercon/S00_ACLK",
           "axi_mem_intercon/M00_ACLK",
-          "axi_bram_ctrl_0/s_axi_aclk"
+          "axi_bram_ctrl_0/s_axi_aclk",
+          "Axi_Single_Read_0/M_AXI_ACLK"
         ]
       },
       "M_AXI_ARESETN_0_1": {
         "ports": [
           "M_AXI_ARESETN_0",
-          "Axi_Single_Read_0/M_AXI_ARESETN",
           "axi_mem_intercon/ARESETN",
           "axi_mem_intercon/S00_ARESETN",
           "axi_mem_intercon/M00_ARESETN",
-          "axi_bram_ctrl_0/s_axi_aresetn"
+          "axi_bram_ctrl_0/s_axi_aresetn",
+          "Axi_Single_Read_0/M_AXI_ARESETN"
+        ]
+      },
+      "readAddress_1": {
+        "ports": [
+          "readAddress",
+          "Axi_Single_Read_0/readAddress"
         ]
       }
     },

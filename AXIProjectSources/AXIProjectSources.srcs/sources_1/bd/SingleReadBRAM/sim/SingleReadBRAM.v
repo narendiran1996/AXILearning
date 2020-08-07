@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-//Date        : Fri Aug  7 18:08:18 2020
+//Date        : Sat Aug  8 02:51:36 2020
 //Host        : narendiran-X556UQK running 64-bit Ubuntu 20.04.1 LTS
 //Command     : generate_target SingleReadBRAM.bd
 //Design      : SingleReadBRAM
@@ -13,10 +13,12 @@
 module SingleReadBRAM
    (M_AXI_ACLK_0,
     M_AXI_ARESETN_0,
-    initRead_0);
+    initRead_0,
+    readAddress);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.M_AXI_ACLK_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.M_AXI_ACLK_0, ASSOCIATED_RESET M_AXI_ARESETN_0, CLK_DOMAIN SingleReadBRAM_M_AXI_ACLK_0, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.000" *) input M_AXI_ACLK_0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.M_AXI_ARESETN_0 RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.M_AXI_ARESETN_0, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input M_AXI_ARESETN_0;
   input initRead_0;
+  input [31:0]readAddress;
 
   wire [31:0]Axi_Single_Read_0_M_AXI_ARADDR;
   wire [2:0]Axi_Single_Read_0_M_AXI_ARPROT;
@@ -64,10 +66,12 @@ module SingleReadBRAM
   wire [3:0]axi_mem_intercon_M00_AXI_WSTRB;
   wire axi_mem_intercon_M00_AXI_WVALID;
   wire initRead_0_1;
+  wire [31:0]readAddress_1;
 
   assign M_AXI_ACLK_0_1 = M_AXI_ACLK_0;
   assign M_AXI_ARESETN_0_1 = M_AXI_ARESETN_0;
   assign initRead_0_1 = initRead_0;
+  assign readAddress_1 = readAddress[31:0];
   SingleReadBRAM_Axi_Single_Read_0_0 Axi_Single_Read_0
        (.M_AXI_ACLK(M_AXI_ACLK_0_1),
         .M_AXI_ARADDR(Axi_Single_Read_0_M_AXI_ARADDR),
@@ -90,7 +94,8 @@ module SingleReadBRAM
         .M_AXI_WREADY(Axi_Single_Read_0_M_AXI_WREADY),
         .M_AXI_WSTRB(Axi_Single_Read_0_M_AXI_WSTRB),
         .M_AXI_WVALID(Axi_Single_Read_0_M_AXI_WVALID),
-        .initRead(initRead_0_1));
+        .initRead(initRead_0_1),
+        .readAddress(readAddress_1));
   SingleReadBRAM_axi_bram_ctrl_0_0 axi_bram_ctrl_0
        (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
         .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
