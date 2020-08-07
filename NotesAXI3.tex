@@ -5,6 +5,9 @@
 \usepackage{graphicx}
 \usepackage{xparse} % NewDocumentCommand, IfValueTF, IFBooleanTF
 
+\usepackage{hyperref}
+\usepackage{minted}
+
 \usepackage{tikz-timing}[2014/10/29]
 \usetikztiminglibrary[rising arrows]{clockarrows}
 
@@ -571,4 +574,101 @@
     \end{itemize}
 \end{itemize}
 
+\section{Basic Interface for Master}
+\begin{minted}[style=perldoc]{verilog}
+//Global Signals
+input wire  M_AXI_ACLK,
+input wire  M_AXI_ARESETN,
+// Write address interface (issued by master)
+output wire [32-1 : 0] M_AXI_AWADDR,
+output wire [2 : 0] M_AXI_AWPROT,
+output wire  M_AXI_AWVALID,
+input wire  M_AXI_AWREADY,
+// Write Data interface (issued by master)
+output wire [32-1 : 0] M_AXI_WDATA,
+output wire [32/8-1 : 0] M_AXI_WSTRB,
+output wire  M_AXI_WVALID,
+input wire  M_AXI_WREADY,
+// Write Response interface (issued by slave)
+input wire [1 : 0] M_AXI_BRESP,
+input wire  M_AXI_BVALID,
+output wire  M_AXI_BREADY,
+// Read Address interface (issued by master)
+output wire [32-1 : 0] M_AXI_ARADDR,
+output wire [2 : 0] M_AXI_ARPROT,
+output wire  M_AXI_ARVALID,
+input wire  M_AXI_ARREADY,
+// Read Data interface (issued by slave)
+input wire [32-1 : 0] M_AXI_RDATA,
+input wire [1 : 0] M_AXI_RRESP,
+input wire  M_AXI_RVALID,
+output wire  M_AXI_RREADY
+\end{minted}
+\section{AXI Single Read}
+\begin{itemize}
+    \item A single read using AXI protocol.
+    \item Uses just the \chFormat{read address} and \chFormat{read data} channel.
+    \item Manipulating the \AXISignals{AWADDR}, \AXISignals{ARVALID} and \AXISignals{RREADY} signals only.
+    \item We read data from BRAM using AXI interface.
+    \item Initial content of BRAM is the \href{./MemFiles/SampleMemFile.coe}{Sample Mem coe file}.
+\end{itemize}
+\subsection{Block Diagram}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SingleReadBRAM.png}
+\end{figure}
+\subsection{Code}
+\begin{minted}[style=perldoc]{verilog}
+// for ARVALID                                                                
+always @(posedge M_AXI_ACLK)                                                     
+    begin                                                                            
+        if (M_AXI_ARESETN == 0)                                                       
+          begin                                                                        
+            axi_arvalid <= 1'b0;                                                       
+          end     
+        else if (init_txn_pulse == 1'b1)                                                    
+          begin                                                                        
+            axi_arvalid <= 1'b1;                                                       
+          end         
+        else if (M_AXI_ARREADY==1 && axi_arvalid==1)                                         
+          begin                                                                        
+            axi_arvalid <= 1'b0;                                                       
+          end                                                                            
+    end
+    
+// for RREADY
+always @(posedge M_AXI_ACLK)                                    
+    begin                                                                 
+        if (M_AXI_ARESETN == 0)                                            
+          begin                                                             
+            axi_rready <= 1'b0;                                             
+          end                                         
+        else if (M_AXI_RVALID==1 && axi_rready==0)                               
+          begin                                                             
+            axi_rready <= 1'b1;                                             
+          end                                                                
+        else if (axi_rready==1)                                                
+          begin                                                             
+            axi_rready <= 1'b0;                                             
+          end                                                               
+    end 
+    
+// Reading the data
+reg [31:0]myVal;
+always @(posedge M_AXI_ACLK)                                                      
+  begin                                                                             
+    if (M_AXI_ARESETN == 0)                                                         
+        myVal <= 1'b0;                                                     
+    else if (M_AXI_RVALID==1 && axi_rready==1)         
+      myVal <= M_AXI_RDATA;                                                        
+    else                                                                            
+      myVal <= myVal;                                               
+  end 
+\end{minted}
+
+\subsection{Output}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SingleReadBRAMoutput.png}
+\end{figure}
 \end{document}

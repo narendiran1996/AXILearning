@@ -10,11 +10,11 @@ preplace inst blk_mem_gen_0 -pg 1 -lvl 4 -x 1050 -y 160 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 2 -x 470 -y 140 -defaultsOSRD
 preplace inst Axi_Single_Read_0 -pg 1 -lvl 1 -x 170 -y 80 -defaultsOSRD
 preplace netloc initRead_0_1 1 0 1 NJ 60
-preplace netloc M_AXI_ACLK_0_1 1 0 3 30 160 310 260 620
-preplace netloc M_AXI_ARESETN_0_1 1 0 3 20 170 320 270 630
-preplace netloc Axi_Single_Read_0_M_AXI 1 1 1 N 80
-preplace netloc axi_mem_intercon_M00_AXI 1 2 1 N 140
+preplace netloc M_AXI_ACLK_0_1 1 0 3 30 160 310 260 620J
+preplace netloc M_AXI_ARESETN_0_1 1 0 3 20 170 320 270 630J
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 3 1 N 160
+preplace netloc axi_mem_intercon_M00_AXI 1 2 1 N 140
+preplace netloc Axi_Single_Read_0_M_AXI 1 1 1 N 80
 levelinfo -pg 1 0 170 470 770 1050 1190
 pagesize -pg 1 -db -bbox -sgen -190 0 1190 280
 "
