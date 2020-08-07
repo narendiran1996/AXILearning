@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA310D6E01BDBC1",
+      "boundary_crc": "0xA7E4D2D1E866BCAB",
       "device": "xc7z010clg400-1",
       "name": "SingleReadBRAM",
       "synth_flow_mode": "Hierarchical",
@@ -62,6 +62,11 @@
       },
       "readAddress": {
         "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "readOutput": {
+        "direction": "O",
         "left": "31",
         "right": "0"
       }
@@ -219,16 +224,16 @@
           }
         },
         "interface_nets": {
-          "s00_couplers_to_axi_mem_intercon": {
-            "interface_ports": [
-              "M00_AXI",
-              "s00_couplers/M_AXI"
-            ]
-          },
           "axi_mem_intercon_to_s00_couplers": {
             "interface_ports": [
               "S00_AXI",
               "s00_couplers/S_AXI"
+            ]
+          },
+          "s00_couplers_to_axi_mem_intercon": {
+            "interface_ports": [
+              "M00_AXI",
+              "s00_couplers/M_AXI"
             ]
           }
         },
@@ -504,6 +509,11 @@
             "direction": "I",
             "left": "31",
             "right": "0"
+          },
+          "readOutput": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         },
         "addressing": {
@@ -517,12 +527,6 @@
       }
     },
     "interface_nets": {
-      "Axi_Single_Read_0_M_AXI": {
-        "interface_ports": [
-          "Axi_Single_Read_0/M_AXI",
-          "axi_mem_intercon/S00_AXI"
-        ]
-      },
       "axi_mem_intercon_M00_AXI": {
         "interface_ports": [
           "axi_mem_intercon/M00_AXI",
@@ -533,6 +537,12 @@
         "interface_ports": [
           "blk_mem_gen_0/BRAM_PORTA",
           "axi_bram_ctrl_0/BRAM_PORTA"
+        ]
+      },
+      "Axi_Single_Read_0_M_AXI": {
+        "interface_ports": [
+          "Axi_Single_Read_0/M_AXI",
+          "axi_mem_intercon/S00_AXI"
         ]
       }
     },
@@ -567,6 +577,12 @@
         "ports": [
           "readAddress",
           "Axi_Single_Read_0/readAddress"
+        ]
+      },
+      "Axi_Single_Read_0_readOutput": {
+        "ports": [
+          "Axi_Single_Read_0/readOutput",
+          "readOutput"
         ]
       }
     },

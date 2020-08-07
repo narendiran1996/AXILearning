@@ -604,11 +604,12 @@ input wire [1 : 0] M_AXI_RRESP,
 input wire  M_AXI_RVALID,
 output wire  M_AXI_RREADY
 \end{minted}
+
 \section{AXI Single Read}
 \begin{itemize}
     \item A single read using AXI protocol.
     \item Uses just the \chFormat{read address} and \chFormat{read data} channel.
-    \item Manipulating the \AXISignals{AWADDR}, \AXISignals{ARVALID} and \AXISignals{RREADY} signals only.
+    \item Manipulating the \AXISignals{ARADDR}, \AXISignals{ARVALID} and \AXISignals{RREADY} signals only.
     \item We read data from BRAM using AXI interface.
     \item Initial content of BRAM is the \href{./MemFiles/SampleMemFile.coe}{Sample Mem coe file}.
 \end{itemize}
@@ -671,4 +672,87 @@ always @(posedge M_AXI_ACLK)
     \centering
     \includegraphics[width=1\textwidth]{Resources/SingleReadBRAMoutput.png}
 \end{figure}
+
+
+\section{AXI Single Write}
+\begin{itemize}
+    \item A single write using AXI protocol.
+    \item Uses just the \chFormat{write address}, \chFormat{write data} and \chFormat{write response} channel.
+    \item Manipulating the \AXISignals{AWADDR}, \AXISignals{AWVALID}, \AXISignals{WDATA}, \AXISignals{WVALID} and \AXISignals{BREADY} signals only.
+    \item We write data from BRAM using AXI interface and also read from the BRAM.
+    \item Output can be seen in readOutput.
+\end{itemize}
+\subsection{Block Diagram}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SingleWriteBRAM.png}
+\end{figure}
+\subsection{Code}
+\begin{minted}[style=perldoc]{verilog}
+// for AWVALID
+always @(posedge M_AXI_ACLK)										      
+    begin                                                              
+    if (M_AXI_ARESETN == 0)                                                   
+        begin                                                                    
+        axi_awvalid <= 1'b0;                                                   
+        end                                                                      
+    else                                                                       
+        begin                                                                    
+        if ( init_txn_pulse == 1'b1)                                                
+            begin                                                                
+            axi_awvalid <= 1'b1;                                               
+            end                                                                  
+        else if (M_AXI_AWREADY && axi_awvalid)                                 
+            begin                                                                
+            axi_awvalid <= 1'b0;                                               
+            end                                                                  
+        end                                                                      
+    end                                                                          
+
+// for WVALID
+always @(posedge M_AXI_ACLK)                                        
+    begin                                                                         
+        if (M_AXI_ARESETN == 0 )                                                    
+        begin                                                                     
+            axi_wvalid <= 1'b0;                                                     
+        end                                                                       
+        else if (init_txn_pulse == 1'b1)                                                
+        begin                                                                     
+            axi_wvalid <= 1'b1;                                                     
+        end                                                                        
+        else if (M_AXI_WREADY && axi_wvalid)                                        
+        begin                                                                     
+        axi_wvalid <= 1'b0;                                                      
+        end                                                                       
+    end  
+    
+// for BREADY
+always @(posedge M_AXI_ACLK)                                    
+    begin                                                                
+    if (M_AXI_ARESETN == 0)                                           
+        begin                                                            
+        axi_bready <= 1'b0;                                            
+        end                                                             
+    else if (M_AXI_BVALID==1 && axi_bready==0)                              
+        begin                                                            
+        axi_bready <= 1'b1;                                            
+        end                                                              
+    else if (axi_bready==1)                                               
+        begin                                                            
+        axi_bready <= 1'b0;                                            
+        end                                                              
+    else                                                               
+        axi_bready <= axi_bready;                                        
+    end   
+
+assign writeErrorOccured = (axi_bready & M_AXI_BVALID & M_AXI_BRESP[1]);
+assign writeDone = (axi_bready & M_AXI_BVALID);
+\end{minted}
+
+\subsection{Output}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SingleWriteBRAMoutput.png}
+\end{figure}
+
 \end{document}

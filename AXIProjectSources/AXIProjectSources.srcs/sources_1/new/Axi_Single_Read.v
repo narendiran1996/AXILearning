@@ -3,9 +3,10 @@
 
 module Axi_Single_Read
 (
-    input wire  initRead,
-    
+    input wire  initRead,    
     input wire [31:0]readAddress,
+    
+    output wire [31:0]readOutput,
         
     //Global Signals
     input wire  M_AXI_ACLK,
@@ -111,4 +112,6 @@ always @(posedge M_AXI_ACLK)
     else                                                                            
       myVal <= myVal;                                               
   end 
+
+assign readOutput = myVal;
 endmodule

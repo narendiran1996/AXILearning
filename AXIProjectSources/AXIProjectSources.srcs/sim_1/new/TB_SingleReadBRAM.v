@@ -6,8 +6,9 @@ reg M_AXI_ACLK_0;
 reg M_AXI_ARESETN_0;
 reg initRead_0;
 reg [31:0]readAddress;
+wire [31:0]readOutput;
     
-SingleReadBRAM_wrapper TBSRB(M_AXI_ACLK_0, M_AXI_ARESETN_0, initRead_0, readAddress);
+SingleReadBRAM_wrapper TBSRB(M_AXI_ACLK_0, M_AXI_ARESETN_0, initRead_0, readAddress, readOutput);
 
 initial
     begin

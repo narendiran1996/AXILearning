@@ -57,6 +57,7 @@
 module SingleReadBRAM_Axi_Single_Read_0_0 (
   initRead,
   readAddress,
+  readOutput,
   M_AXI_ACLK,
   M_AXI_ARESETN,
   M_AXI_AWADDR,
@@ -82,6 +83,7 @@ module SingleReadBRAM_Axi_Single_Read_0_0 (
 
 input wire initRead;
 input wire [31 : 0] readAddress;
+output wire [31 : 0] readOutput;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_ACLK, ASSOCIATED_BUSIF M_AXI, ASSOCIATED_RESET M_AXI_ARESETN, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN SingleReadBRAM_M_AXI_ACLK_0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M_AXI_ACLK CLK" *)
 input wire M_AXI_ACLK;
@@ -132,6 +134,7 @@ output wire M_AXI_RREADY;
   Axi_Single_Read inst (
     .initRead(initRead),
     .readAddress(readAddress),
+    .readOutput(readOutput),
     .M_AXI_ACLK(M_AXI_ACLK),
     .M_AXI_ARESETN(M_AXI_ARESETN),
     .M_AXI_AWADDR(M_AXI_AWADDR),
