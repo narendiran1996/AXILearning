@@ -92,7 +92,7 @@ reg [31:0]reg_data_out;
 always @(*)
 	begin
 	      // Address decoding for reading registers
-	      case ( axi_araddr[3:1] )
+	      case ( axi_araddr[3:2] )
 	        2'h0   : reg_data_out <= 32'habcdef01;
 	        2'h1   : reg_data_out <= 32'hcafecafe;
 	        2'h2   : reg_data_out <= 32'hd00dd00d;
