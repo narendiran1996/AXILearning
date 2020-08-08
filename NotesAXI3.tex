@@ -575,7 +575,7 @@
 \end{itemize}
 
 \section{Basic Interface for Master}
-\begin{minted}[style=perldoc]{verilog}
+\begin{minted}[breaklines, style=perldoc]{verilog}
 //Global Signals
 input wire  M_AXI_ACLK,
 input wire  M_AXI_ARESETN,
@@ -605,7 +605,7 @@ input wire  M_AXI_RVALID,
 output wire  M_AXI_RREADY
 \end{minted}
 
-\section{AXI Single Read}
+\section{AXI Master Single Read}
 \begin{itemize}
     \item A single read using AXI protocol.
     \item Uses just the \chFormat{read address} and \chFormat{read data} channel.
@@ -619,7 +619,7 @@ output wire  M_AXI_RREADY
     \includegraphics[width=1\textwidth]{Resources/SingleReadBRAM.png}
 \end{figure}
 \subsection{Code}
-\begin{minted}[style=perldoc]{verilog}
+\begin{minted}[breaklines, style=perldoc]{verilog}
 // for ARVALID                                                                
 always @(posedge M_AXI_ACLK)                                                     
     begin                                                                            
@@ -674,7 +674,7 @@ always @(posedge M_AXI_ACLK)
 \end{figure}
 
 
-\section{AXI Single Write}
+\section{AXI Master Single Write}
 \begin{itemize}
     \item A single write using AXI protocol.
     \item Uses just the \chFormat{write address}, \chFormat{write data} and \chFormat{write response} channel.
@@ -688,7 +688,7 @@ always @(posedge M_AXI_ACLK)
     \includegraphics[width=1\textwidth]{Resources/SingleWriteBRAM.png}
 \end{figure}
 \subsection{Code}
-\begin{minted}[style=perldoc]{verilog}
+\begin{minted}[breaklines, style=perldoc]{verilog}
 // for AWVALID
 always @(posedge M_AXI_ACLK)										      
     begin                                                              
@@ -754,5 +754,194 @@ assign writeDone = (axi_bready & M_AXI_BVALID);
     \centering
     \includegraphics[width=1\textwidth]{Resources/SingleWriteBRAMoutput.png}
 \end{figure}
+
+
+\section{Basic Interface for Slave}
+\begin{minted}[breaklines, style=perldoc]{verilog}
+//Global Signals
+input wire  S_AXI_ACLK,
+input wire  S_AXI_ARESETN,
+// Write address interface (issued by master)
+input wire [32-1 : 0] S_AXI_AWADDR,
+input wire [2 : 0] S_AXI_AWPROT,
+input wire  S_AXI_AWVALID,
+output wire  S_AXI_AWREADY, 
+// Write Data interface (issued by Master)
+input wire [32-1 : 0] S_AXI_WDATA,
+input wire [(32/8)-1 : 0] S_AXI_WSTRB,
+input wire  S_AXI_WVALID,
+output wire  S_AXI_WREADY,
+    // Write Response interface (issued by slave)
+output wire [1 : 0] S_AXI_BRESP,
+output wire  S_AXI_BVALID,
+input wire  S_AXI_BREADY,     
+// Read Address interface (issued by master)
+input wire [32-1 : 0] S_AXI_ARADDR,
+input wire [2 : 0] S_AXI_ARPROT,
+input wire  S_AXI_ARVALID,
+output wire  S_AXI_ARREADY,
+// Read Data interface (issued by slave)
+output wire [32-1 : 0] S_AXI_RDATA,
+output wire [1 : 0] S_AXI_RRESP,
+output wire  S_AXI_RVALID,
+input wire  S_AXI_RREADY
+\end{minted}
+
+
+\section{AXI Slave Write To}
+\begin{itemize}
+    \item Master writes onto the slave.
+    \item Uses just the \chFormat{write address}, \chFormat{write data} and \chFormat{write response} channel.
+    \item Manipulating the \AXISignals{AWREADY}, \AXISignals{AWVALID}, \AXISignals{WREADY}, \AXISignals{BVALID} and \AXISignals{BRESP} signals only.
+    \item We write data from Master into the Slave's 3 reg with \AXISignals{AWADDR}.
+\end{itemize}
+\subsection{Block Diagram}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SlaveWriteTo3Reg.png}
+\end{figure}
+\subsection{Code}
+\begin{minted}[breaklines, style=perldoc]{verilog}
+// for AWREADY
+always @( posedge S_AXI_ACLK )
+    begin
+        if ( S_AXI_ARESETN == 1'b0 )
+            begin
+            axi_awready <= 1'b0;
+            end 
+        else
+            begin    
+                if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID)
+                    begin
+                    axi_awready <= 1'b1;
+                    end
+                else if (S_AXI_BREADY && axi_bvalid)
+                    begin
+                    axi_awready <= 1'b0;
+                    end
+                else           
+                    begin
+                    axi_awready <= 1'b0;
+                    end
+            end 
+    end 
+
+// for AWADDR
+always @( posedge S_AXI_ACLK )
+    begin
+        if ( S_AXI_ARESETN == 1'b0 )
+            begin
+            axi_awaddr <= 0;
+            end 
+        else
+            begin    
+                if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID)
+                    begin
+                        axi_awaddr <= S_AXI_AWADDR;
+                    end
+            end 
+    end       
+
+// for WREADY
+always @( posedge S_AXI_ACLK )
+    begin
+        if ( S_AXI_ARESETN == 1'b0 )
+            begin
+                axi_wready <= 1'b0;
+            end 
+        else
+            begin    
+                if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID )
+                    begin
+                        axi_wready <= 1'b1;
+                    end
+                else
+                    begin
+                        axi_wready <= 1'b0;
+                    end
+            end 
+    end       
+	
+// for writing WDATA
+reg [32-1:0]slv_reg0, slv_reg1, slv_reg2;
+integer	 byte_index;
+
+always @( posedge S_AXI_ACLK )
+    begin
+    if ( S_AXI_ARESETN == 1'b0 )
+        begin
+        slv_reg0 <= 0;
+        slv_reg1 <= 0;
+        slv_reg2 <= 0;
+        end 
+    else if (axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID)
+        begin
+            case ( axi_awaddr[3:2] )
+                2'h0:
+                    for ( byte_index = 0; byte_index <= (32/8)-1; byte_index = byte_index+1 )
+                    if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+                    // Respective byte enables are asserted as per write strobes 
+                    // Slave register 0
+                    slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                    end  
+                2'h1:
+                    for ( byte_index = 0; byte_index <= (32/8)-1; byte_index = byte_index+1 )
+                    if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+                    // Respective byte enables are asserted as per write strobes 
+                    // Slave register 1
+                    slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                    end  
+                2'h2:
+                    for ( byte_index = 0; byte_index <= (32/8)-1; byte_index = byte_index+1 )
+                    if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+                    // Respective byte enables are asserted as per write strobes 
+                    // Slave register 2
+                    slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                end                  
+                default : begin
+                slv_reg0 <= slv_reg0;
+                slv_reg1 <= slv_reg1;
+                slv_reg2 <= slv_reg2;
+                end
+            endcase
+        end
+    end
+    
+// for BVALID and BRESP
+always @( posedge S_AXI_ACLK )
+    begin
+      if ( S_AXI_ARESETN == 1'b0 )
+        begin
+          axi_bvalid  <= 0;
+          axi_bresp   <= 2'b0;
+        end 
+      else
+        begin    
+          if (axi_awready && S_AXI_AWVALID && ~axi_bvalid && axi_wready && S_AXI_WVALID)
+            begin
+              axi_bvalid <= 1'b1;
+              axi_bresp  <= 2'b0; // 'OKAY' response 
+            end
+          else
+            begin
+              if (S_AXI_BREADY && axi_bvalid)   
+                begin
+                  axi_bvalid <= 1'b0; 
+                end  
+            end
+        end
+    end 
+    
+assign out1 = slv_reg0;
+assign out2 = slv_reg1;
+assign out3 = slv_reg2;
+\end{minted}
+
+\subsection{Output}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Resources/SlaveWriteTo3RegOutput.png}
+\end{figure}
+
 
 \end{document}
