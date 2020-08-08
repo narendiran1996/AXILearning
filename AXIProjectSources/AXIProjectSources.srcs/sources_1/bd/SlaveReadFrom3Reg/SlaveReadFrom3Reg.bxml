@@ -1,72 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root MajorVersion="0" MinorVersion="37">
-  <CompositeFile CompositeFileTopName="SlaveWriteTo3Reg" CanBeSetAsTop="false" CanDisplayChildGraph="true">
+  <CompositeFile CompositeFileTopName="SlaveReadFrom3Reg" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596845993"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596845993"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1596845993"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1596845905"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596846588"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596846588"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1596846588"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1596846588"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
-      <File Name="ip/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0.xci" Type="IP">
-        <Instance HierarchyPath="AXISlave_WriteTo_0"/>
+      <File Name="ip/SlaveReadFrom3Reg_AXISlave_ReadFrom_1_0/SlaveReadFrom3Reg_AXISlave_ReadFrom_1_0.xci" Type="IP">
+        <Instance HierarchyPath="AXISlave_ReadFrom_1"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0.xci" Type="IP">
-        <Instance HierarchyPath="AXIMaster_Single_Wri_0"/>
+      <File Name="ip/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_0/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_0.xci" Type="IP">
+        <Instance HierarchyPath="AXIMaster_Single_Read_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_axi_periph_0/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_axi_periph_0.xci" Type="IP">
+      <File Name="ip/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_axi_periph_0/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_axi_periph_0.xci" Type="IP">
+        <Instance HierarchyPath="AXIMaster_Single_Read_0_axi_periph"/>
         <Properties IsEditable="false" IsVisible="false" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="synth/SlaveWriteTo3Reg.v" Type="Verilog">
+      <File Name="synth/SlaveReadFrom3Reg.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
       </File>
-      <File Name="sim/SlaveWriteTo3Reg.v" Type="Verilog">
+      <File Name="sim/SlaveReadFrom3Reg.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="hw_handoff/SlaveWriteTo3Reg.hwh" Type="HwHandoff">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="hw_handoff/SlaveWriteTo3Reg_bd.tcl">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="synth/SlaveWriteTo3Reg.hwdef">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="HW_HANDOFF"/>
-      </File>
-      <File Name="sim/SlaveWriteTo3Reg.protoinst">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="SlaveWriteTo3Reg_ooc.xdc" Type="XDC">
+      <File Name="SlaveReadFrom3Reg_ooc.xdc" Type="XDC">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="OUT_OF_CONTEXT"/>
+      </File>
+      <File Name="hw_handoff/SlaveReadFrom3Reg.hwh" Type="HwHandoff">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="hw_handoff/SlaveReadFrom3Reg_bd.tcl">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="synth/SlaveReadFrom3Reg.hwdef">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="sim/SlaveReadFrom3Reg.protoinst">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
       </File>
     </FileCollection>
   </CompositeFile>

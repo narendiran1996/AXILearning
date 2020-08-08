@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="37">
   <CompositeFile CompositeFileTopName="SingleWriteBRAM" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596840927"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596840927"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1596840927"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1596846175"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1596846175"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1596846175"/>
     <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1596840927"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/SingleWriteBRAM_axi_bram_ctrl_0_0/SingleWriteBRAM_axi_bram_ctrl_0_0.xci" Type="IP">
@@ -80,13 +80,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="SingleWriteBRAM_ooc.xdc" Type="XDC">
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="OUT_OF_CONTEXT"/>
-      </File>
       <File Name="hw_handoff/SingleWriteBRAM.hwh" Type="HwHandoff">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
@@ -106,6 +99,13 @@
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="SingleWriteBRAM_ooc.xdc" Type="XDC">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="OUT_OF_CONTEXT"/>
       </File>
     </FileCollection>
   </CompositeFile>
