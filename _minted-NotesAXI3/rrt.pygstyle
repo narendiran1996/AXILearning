@@ -1,0 +1,70 @@
+
+\makeatletter
+\def\PYGrrt@reset{\let\PYGrrt@it=\relax \let\PYGrrt@bf=\relax%
+    \let\PYGrrt@ul=\relax \let\PYGrrt@tc=\relax%
+    \let\PYGrrt@bc=\relax \let\PYGrrt@ff=\relax}
+\def\PYGrrt@tok#1{\csname PYGrrt@tok@#1\endcsname}
+\def\PYGrrt@toks#1+{\ifx\relax#1\empty\else%
+    \PYGrrt@tok{#1}\expandafter\PYGrrt@toks\fi}
+\def\PYGrrt@do#1{\PYGrrt@bc{\PYGrrt@tc{\PYGrrt@ul{%
+    \PYGrrt@it{\PYGrrt@bf{\PYGrrt@ff{#1}}}}}}}
+\def\PYGrrt#1#2{\PYGrrt@reset\PYGrrt@toks#1+\relax+\PYGrrt@do{#2}}
+
+\expandafter\def\csname PYGrrt@tok@c\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@nf\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@nv\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.87,0.51}{##1}}}
+\expandafter\def\csname PYGrrt@tok@no\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.50,1.00,0.83}{##1}}}
+\expandafter\def\csname PYGrrt@tok@k\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@cp\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.90,0.90,0.90}{##1}}}
+\expandafter\def\csname PYGrrt@tok@s\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kt\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.51,0.93}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kc\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kd\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kn\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kp\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@kr\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@fm\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{1.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@vc\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.87,0.51}{##1}}}
+\expandafter\def\csname PYGrrt@tok@vg\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.87,0.51}{##1}}}
+\expandafter\def\csname PYGrrt@tok@vi\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.87,0.51}{##1}}}
+\expandafter\def\csname PYGrrt@tok@vm\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.93,0.87,0.51}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sa\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sb\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sc\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@dl\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sd\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@s2\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@se\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sh\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@si\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sx\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@sr\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@s1\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@ss\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.53,0.81,0.92}{##1}}}
+\expandafter\def\csname PYGrrt@tok@ch\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@cm\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@cpf\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@c1\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+\expandafter\def\csname PYGrrt@tok@cs\endcsname{\def\PYGrrt@tc##1{\textcolor[rgb]{0.00,1.00,0.00}{##1}}}
+
+\def\PYGrrtZbs{\char`\\}
+\def\PYGrrtZus{\char`\_}
+\def\PYGrrtZob{\char`\{}
+\def\PYGrrtZcb{\char`\}}
+\def\PYGrrtZca{\char`\^}
+\def\PYGrrtZam{\char`\&}
+\def\PYGrrtZlt{\char`\<}
+\def\PYGrrtZgt{\char`\>}
+\def\PYGrrtZsh{\char`\#}
+\def\PYGrrtZpc{\char`\%}
+\def\PYGrrtZdl{\char`\$}
+\def\PYGrrtZhy{\char`\-}
+\def\PYGrrtZsq{\char`\'}
+\def\PYGrrtZdq{\char`\"}
+\def\PYGrrtZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGrrtZat{@}
+\def\PYGrrtZlb{[}
+\def\PYGrrtZrb{]}
+\makeatother
+

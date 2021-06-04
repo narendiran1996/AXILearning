@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_SingleWriteBRAM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_SingleWriteBRAM" />
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="280000001fs"></ZoomEndTime>
+      <Cursor1Time time="252000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="232"></NameColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/writeErrorOccured">
+      <obj_property name="ElementShortName">writeErrorOccured</obj_property>
+      <obj_property name="ObjectShortName">writeErrorOccured</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleWriteBRAM/readOutput">
+      <obj_property name="ElementShortName">readOutput[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readOutput[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/clkIn">
+      <obj_property name="ElementShortName">clkIn</obj_property>
+      <obj_property name="ObjectShortName">clkIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/resetIn">
+      <obj_property name="ElementShortName">resetIn</obj_property>
+      <obj_property name="ObjectShortName">resetIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/initWrite">
+      <obj_property name="ElementShortName">initWrite</obj_property>
+      <obj_property name="ObjectShortName">initWrite</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_AWADDR">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_AWVALID">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_AWREADY">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_WDATA">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_WVALID">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_WREADY">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_BRESP">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_BVALID">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleWriteBRAM/TBSWB/SingleWriteBRAM_i/AXIMaster_Single_Wri_0/inst/M_AXI_BREADY">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+</wave_config>

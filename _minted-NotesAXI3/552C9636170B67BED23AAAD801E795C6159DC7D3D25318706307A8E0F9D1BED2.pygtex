@@ -1,0 +1,76 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// for ARREADY and ARADDR}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+            \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{n}{axi\PYGZus{}araddr}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{32}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else}
+            \PYG{k}{begin}
+                \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARVALID}\PYG{p}{)}
+                    \PYG{k}{begin}
+                        \PYG{c+c1}{// indicates that the slave has acceped the valid read address}
+                        \PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+                        \PYG{c+c1}{// Read address latching}
+                        \PYG{n}{axi\PYGZus{}araddr}  \PYG{o}{\PYGZlt{}=} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARADDR}\PYG{p}{;}
+                    \PYG{k}{end}
+                \PYG{k}{else}
+                    \PYG{k}{begin}
+                        \PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+                    \PYG{k}{end}
+            \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for RVALID and RRESP}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+        \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}rvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+            \PYG{n}{axi\PYGZus{}rresp}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{k}{end}
+        \PYG{k}{else}
+        \PYG{k}{begin}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}rvalid}\PYG{p}{)}
+            \PYG{k}{begin}
+                \PYG{n}{axi\PYGZus{}rvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+                \PYG{n}{axi\PYGZus{}rresp}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{2}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;} \PYG{c+c1}{// \PYGZsq{}OKAY\PYGZsq{} response}
+            \PYG{k}{end}
+            \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}rvalid} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}RREADY}\PYG{p}{)}
+            \PYG{k}{begin}
+                \PYG{n}{axi\PYGZus{}rvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// address decoding}
+\PYG{k+kt}{reg} \PYG{p}{[}\PYG{l+m+mh}{31}\PYG{o}{:}\PYG{l+m+mh}{0}\PYG{p}{]}\PYG{n}{reg\PYGZus{}data\PYGZus{}out}\PYG{p}{;}
+\PYG{k}{always} \PYG{p}{@(}\PYG{o}{*}\PYG{p}{)}
+    \PYG{k}{begin}
+            \PYG{c+c1}{// Address decoding for reading registers}
+            \PYG{k}{case} \PYG{p}{(} \PYG{n}{axi\PYGZus{}araddr}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{o}{:}\PYG{l+m+mh}{1}\PYG{p}{]} \PYG{p}{)}
+            \PYG{l+m+mh}{2\PYGZsq{}h0}   \PYG{o}{:} \PYG{n}{reg\PYGZus{}data\PYGZus{}out} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{32\PYGZsq{}habcdef01}\PYG{p}{;}
+            \PYG{l+m+mh}{2\PYGZsq{}h1}   \PYG{o}{:} \PYG{n}{reg\PYGZus{}data\PYGZus{}out} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{32\PYGZsq{}hcafecafe}\PYG{p}{;}
+            \PYG{l+m+mh}{2\PYGZsq{}h2}   \PYG{o}{:} \PYG{n}{reg\PYGZus{}data\PYGZus{}out} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{32\PYGZsq{}hd00dd00d}\PYG{p}{;}
+            \PYG{k}{default} \PYG{o}{:} \PYG{n}{reg\PYGZus{}data\PYGZus{}out} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+            \PYG{k}{endcase}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for RDATA}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+            \PYG{k}{begin}
+                \PYG{n}{axi\PYGZus{}rdata}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else}
+            \PYG{k}{begin}
+                \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}arready} \PYG{o}{\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARVALID} \PYG{o}{\PYGZam{}} \PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}rvalid}\PYG{p}{)}
+                \PYG{k}{begin}
+                    \PYG{n}{axi\PYGZus{}rdata} \PYG{o}{\PYGZlt{}=} \PYG{n}{reg\PYGZus{}data\PYGZus{}out}\PYG{p}{;}     \PYG{c+c1}{// register read data}
+                \PYG{k}{end}
+        \PYG{k}{end}
+    \PYG{k}{end}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../bd/SingleReadBRAM/ip/SingleReadBRAM_axi_bram_ctrl_0_0/sim/SingleReadBRAM_axi_bram_ctrl_0_0.vhd" \
+
+nosort

@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../AXIProjectSources.srcs/sources_1/new/AXIMaster_Single_Read.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleReadBRAM/ip/SingleReadBRAM_blk_mem_gen_0_0/sim/SingleReadBRAM_blk_mem_gen_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleReadBRAM/sim/SingleReadBRAM.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleReadBRAM/ip/SingleReadBRAM_AXIMaster_Single_Read_0_0/sim/SingleReadBRAM_AXIMaster_Single_Read_0_0.v" \
+"../../../../AXIProjectSources.srcs/sources_1/bd/SingleReadBRAM/hdl/SingleReadBRAM_wrapper.v" \
+"../../../../AXIProjectSources.srcs/sim_1/new/TB_SingleReadBRAM.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

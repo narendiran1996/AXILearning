@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_SingleReadBRAM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_SingleReadBRAM" />
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="383518931fs"></ZoomEndTime>
+      <Cursor1Time time="560000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="232"></NameColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject type="array" fp_name="/TB_SingleReadBRAM/readOutput">
+      <obj_property name="ElementShortName">readOutput[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readOutput[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/M_AXI_ACLK_0">
+      <obj_property name="ElementShortName">M_AXI_ACLK_0</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ACLK_0</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/M_AXI_ARESETN_0">
+      <obj_property name="ElementShortName">M_AXI_ARESETN_0</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESETN_0</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/initRead_0">
+      <obj_property name="ElementShortName">initRead_0</obj_property>
+      <obj_property name="ObjectShortName">initRead_0</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_ARADDR">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_ARVALID">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_ARREADY">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_RDATA">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_RVALID">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SingleReadBRAM/TBSRB/SingleReadBRAM_i/AXIMaster_Single_Read_0/inst/M_AXI_RREADY">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,8 @@
+verilog xil_defaultlib  \
+"../../../bd/SlaveWriteTo3Reg/ip/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0/sim/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0.v" \
+"../../../bd/SlaveWriteTo3Reg/ip/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0/sim/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0.v" \
+"../../../bd/SlaveWriteTo3Reg/sim/SlaveWriteTo3Reg.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

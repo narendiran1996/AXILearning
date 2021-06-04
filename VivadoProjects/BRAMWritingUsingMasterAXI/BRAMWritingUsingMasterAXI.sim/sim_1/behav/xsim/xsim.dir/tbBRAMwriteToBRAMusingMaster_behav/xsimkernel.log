@@ -2,3 +2,6 @@ Running: xsim.dir/tbBRAMwriteToBRAMusingMaster_behav/xsimk -simmode gui -wdb tbB
 Design successfully loaded
 Design Loading Memory Usage: 34100 KB (Peak: 34100 KB)
 Design Loading CPU Usage: 60 ms
+Simulation completed
+Simulation Memory Usage: 115612 KB (Peak: 173368 KB)
+Simulation CPU Usage: 120 ms

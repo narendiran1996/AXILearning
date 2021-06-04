@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Jun  4 09:29:52 2021
+# Process ID: 342235
+# Current directory: /home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/BlkGPIO_ResetNotGate_0_0_synth_1
+# Command line: vivado -log BlkGPIO_ResetNotGate_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BlkGPIO_ResetNotGate_0_0.tcl
+# Log file: /home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/BlkGPIO_ResetNotGate_0_0_synth_1/BlkGPIO_ResetNotGate_0_0.vds
+# Journal file: /home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/BlkGPIO_ResetNotGate_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source BlkGPIO_ResetNotGate_0_0.tcl -notrace

@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../AXIProjectSources.srcs/sources_1/new/Axi_Single_Write.v" \
+"../../../../AXIProjectSources.srcs/sources_1/new/Axi_Single_Read.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_blk_mem_gen_0_0/sim/SingleWriteBRAM_blk_mem_gen_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_Axi_Single_Write_0_0/sim/SingleWriteBRAM_Axi_Single_Write_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_Axi_Single_Read_0_0/sim/SingleWriteBRAM_Axi_Single_Read_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_xlconstant_0_0/sim/SingleWriteBRAM_xlconstant_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/sim/SingleWriteBRAM.v" \
+"../../../../AXIProjectSources.srcs/sources_1/bd/SingleWriteBRAM/hdl/SingleWriteBRAM_wrapper.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

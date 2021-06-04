@@ -1,0 +1,5 @@
+SingleReadBRAM_axi_bram_ctrl_0_0.vhd,vhdl,xil_defaultlib,../../../bd/SingleReadBRAM/ip/SingleReadBRAM_axi_bram_ctrl_0_0/sim/SingleReadBRAM_axi_bram_ctrl_0_0.vhd,
+SingleReadBRAM_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/SingleReadBRAM/ip/SingleReadBRAM_blk_mem_gen_0_0/sim/SingleReadBRAM_blk_mem_gen_0_0.v,
+SingleReadBRAM.v,verilog,xil_defaultlib,../../../bd/SingleReadBRAM/sim/SingleReadBRAM.v,
+SingleReadBRAM_AXIMaster_Single_Read_0_0.v,verilog,xil_defaultlib,../../../bd/SingleReadBRAM/ip/SingleReadBRAM_AXIMaster_Single_Read_0_0/sim/SingleReadBRAM_AXIMaster_Single_Read_0_0.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

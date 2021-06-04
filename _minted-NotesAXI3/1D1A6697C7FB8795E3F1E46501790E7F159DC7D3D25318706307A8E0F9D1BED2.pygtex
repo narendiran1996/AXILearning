@@ -1,0 +1,135 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// for AWREADY}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+            \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else}
+            \PYG{k}{begin}
+                \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID}\PYG{p}{)}
+                    \PYG{k}{begin}
+                    \PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+                    \PYG{k}{end}
+                \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{S\PYGZus{}AXI\PYGZus{}BREADY} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}bvalid}\PYG{p}{)}
+                    \PYG{k}{begin}
+                    \PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+                    \PYG{k}{end}
+                \PYG{k}{else}
+                    \PYG{k}{begin}
+                    \PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+                    \PYG{k}{end}
+            \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for AWADDR}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+            \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}awaddr} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else}
+            \PYG{k}{begin}
+                \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID}\PYG{p}{)}
+                    \PYG{k}{begin}
+                        \PYG{n}{axi\PYGZus{}awaddr} \PYG{o}{\PYGZlt{}=} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWADDR}\PYG{p}{;}
+                    \PYG{k}{end}
+            \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for WREADY}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+            \PYG{k}{begin}
+                \PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else}
+            \PYG{k}{begin}
+                \PYG{k}{if} \PYG{p}{(}\PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID} \PYG{p}{)}
+                    \PYG{k}{begin}
+                        \PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+                    \PYG{k}{end}
+                \PYG{k}{else}
+                    \PYG{k}{begin}
+                        \PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+                    \PYG{k}{end}
+            \PYG{k}{end}
+    \PYG{k}{end}
+	
+\PYG{c+c1}{// for writing WDATA}
+\PYG{k+kt}{reg} \PYG{p}{[}\PYG{l+m+mh}{32}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{o}{:}\PYG{l+m+mh}{0}\PYG{p}{]}\PYG{n}{slv\PYGZus{}reg0}\PYG{p}{,} \PYG{n}{slv\PYGZus{}reg1}\PYG{p}{,} \PYG{n}{slv\PYGZus{}reg2}\PYG{p}{;}
+\PYG{k}{integer}	 \PYG{n}{byte\PYGZus{}index}\PYG{p}{;}
+
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+    \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{slv\PYGZus{}reg0} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{n}{slv\PYGZus{}reg1} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{n}{slv\PYGZus{}reg2} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID}\PYG{p}{)}
+        \PYG{k}{begin}
+            \PYG{k}{case} \PYG{p}{(} \PYG{n}{axi\PYGZus{}awaddr}\PYG{p}{[}\PYG{l+m+mh}{3}\PYG{o}{:}\PYG{l+m+mh}{2}\PYG{p}{]} \PYG{p}{)}
+                \PYG{l+m+mh}{2\PYGZsq{}h0}\PYG{o}{:}
+                    \PYG{k}{for} \PYG{p}{(} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{l+m+mh}{0}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{\PYGZlt{}=} \PYG{p}{(}\PYG{l+m+mh}{32}\PYG{o}{/}\PYG{l+m+mh}{8}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{n}{byte\PYGZus{}index}\PYG{o}{+}\PYG{l+m+mh}{1} \PYG{p}{)}
+                    \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WSTRB}\PYG{p}{[}\PYG{n}{byte\PYGZus{}index}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mh}{1} \PYG{p}{)} \PYG{k}{begin}
+                    \PYG{c+c1}{// Respective byte enables are asserted as per write strobes}
+                    \PYG{c+c1}{// Slave register 0}
+                    \PYG{n}{slv\PYGZus{}reg0}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WDATA}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{];}
+                    \PYG{k}{end}
+                \PYG{l+m+mh}{2\PYGZsq{}h1}\PYG{o}{:}
+                    \PYG{k}{for} \PYG{p}{(} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{l+m+mh}{0}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{\PYGZlt{}=} \PYG{p}{(}\PYG{l+m+mh}{32}\PYG{o}{/}\PYG{l+m+mh}{8}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{n}{byte\PYGZus{}index}\PYG{o}{+}\PYG{l+m+mh}{1} \PYG{p}{)}
+                    \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WSTRB}\PYG{p}{[}\PYG{n}{byte\PYGZus{}index}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mh}{1} \PYG{p}{)} \PYG{k}{begin}
+                    \PYG{c+c1}{// Respective byte enables are asserted as per write strobes}
+                    \PYG{c+c1}{// Slave register 1}
+                    \PYG{n}{slv\PYGZus{}reg1}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WDATA}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{];}
+                    \PYG{k}{end}
+                \PYG{l+m+mh}{2\PYGZsq{}h2}\PYG{o}{:}
+                    \PYG{k}{for} \PYG{p}{(} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{l+m+mh}{0}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{\PYGZlt{}=} \PYG{p}{(}\PYG{l+m+mh}{32}\PYG{o}{/}\PYG{l+m+mh}{8}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1}\PYG{p}{;} \PYG{n}{byte\PYGZus{}index} \PYG{o}{=} \PYG{n}{byte\PYGZus{}index}\PYG{o}{+}\PYG{l+m+mh}{1} \PYG{p}{)}
+                    \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WSTRB}\PYG{p}{[}\PYG{n}{byte\PYGZus{}index}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mh}{1} \PYG{p}{)} \PYG{k}{begin}
+                    \PYG{c+c1}{// Respective byte enables are asserted as per write strobes}
+                    \PYG{c+c1}{// Slave register 2}
+                    \PYG{n}{slv\PYGZus{}reg2}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{]} \PYG{o}{\PYGZlt{}=} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WDATA}\PYG{p}{[(}\PYG{n}{byte\PYGZus{}index}\PYG{o}{*}\PYG{l+m+mh}{8}\PYG{p}{)} \PYG{o}{+:} \PYG{l+m+mh}{8}\PYG{p}{];}
+                \PYG{k}{end}
+                \PYG{k}{default} \PYG{o}{:} \PYG{k}{begin}
+                \PYG{n}{slv\PYGZus{}reg0} \PYG{o}{\PYGZlt{}=} \PYG{n}{slv\PYGZus{}reg0}\PYG{p}{;}
+                \PYG{n}{slv\PYGZus{}reg1} \PYG{o}{\PYGZlt{}=} \PYG{n}{slv\PYGZus{}reg1}\PYG{p}{;}
+                \PYG{n}{slv\PYGZus{}reg2} \PYG{o}{\PYGZlt{}=} \PYG{n}{slv\PYGZus{}reg2}\PYG{p}{;}
+                \PYG{k}{end}
+            \PYG{k}{endcase}
+        \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for BVALID and BRESP}
+\PYG{k}{always} \PYG{p}{@(} \PYG{k}{posedge} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK} \PYG{p}{)}
+    \PYG{k}{begin}
+      \PYG{k}{if} \PYG{p}{(} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0} \PYG{p}{)}
+        \PYG{k}{begin}
+          \PYG{n}{axi\PYGZus{}bvalid}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{0}\PYG{p}{;}
+          \PYG{n}{axi\PYGZus{}bresp}   \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{2}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+      \PYG{k}{else}
+        \PYG{k}{begin}
+          \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}awready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{\PYGZti{}}\PYG{n}{axi\PYGZus{}bvalid} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}wready} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID}\PYG{p}{)}
+            \PYG{k}{begin}
+              \PYG{n}{axi\PYGZus{}bvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+              \PYG{n}{axi\PYGZus{}bresp}  \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{2}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;} \PYG{c+c1}{// \PYGZsq{}OKAY\PYGZsq{} response}
+            \PYG{k}{end}
+          \PYG{k}{else}
+            \PYG{k}{begin}
+              \PYG{k}{if} \PYG{p}{(}\PYG{n}{S\PYGZus{}AXI\PYGZus{}BREADY} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}bvalid}\PYG{p}{)}
+                \PYG{k}{begin}
+                  \PYG{n}{axi\PYGZus{}bvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+                \PYG{k}{end}
+            \PYG{k}{end}
+        \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{k}{assign} \PYG{n}{out1} \PYG{o}{=} \PYG{n}{slv\PYGZus{}reg0}\PYG{p}{;}
+\PYG{k}{assign} \PYG{n}{out2} \PYG{o}{=} \PYG{n}{slv\PYGZus{}reg1}\PYG{p}{;}
+\PYG{k}{assign} \PYG{n}{out3} \PYG{o}{=} \PYG{n}{slv\PYGZus{}reg2}\PYG{p}{;}
+\end{Verbatim}

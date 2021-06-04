@@ -1,0 +1,89 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Fri Jun  4 09:52:17 2021
+| Host         : narendiran-X556UQK running 64-bit Ubuntu 20.04.2 LTS
+| Command      : report_control_sets -verbose -file BlkGPIO_wrapper_control_sets_placed.rpt
+| Design       : BlkGPIO_wrapper
+| Device       : xc7z010
+--------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    11 |
+|    Minimum number of control sets                        |    11 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    53 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    11 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     2 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              37 |           11 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              40 |           15 |
+| Yes          | No                    | No                     |               4 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              10 |            4 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------+----------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+------------------+----------------+
+|   Clock Signal   |                                               Enable Signal                                              |                                     Set/Reset Signal                                    | Slice Load Count | Bel Load Count |
++------------------+----------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+------------------+----------------+
+|  clkIn_IBUF_BUFG | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/start2                                        | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/cs_ce_clr          |                1 |              1 |
+|  clkIn_IBUF_BUFG | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/bus2ip_addr_i[8]_i_1_n_0                      | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/SR[0]                        |                1 |              1 |
+|  clkIn_IBUF_BUFG |                                                                                                          | BlkGPIO_i/axi_gpio_0/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/clear                        |                1 |              4 |
+|  clkIn_IBUF_BUFG |                                                                                                          | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/bus2ip_rnw_i_reg_0 |                2 |              4 |
+|  clkIn_IBUF_BUFG |                                                                                                          | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/clear                        |                1 |              4 |
+|  clkIn_IBUF_BUFG | BlkGPIO_i/MasterReadFromBram_0/inst/readValue0                                                           | resetN_IBUF                                                                             |                1 |              4 |
+|  clkIn_IBUF_BUFG | BlkGPIO_i/axi_gpio_0/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/MEM_DECODE_GEN[0].cs_out_i_reg[0]_0 |                                                                                         |                2 |              4 |
+|  clkIn_IBUF_BUFG | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_rresp_i                                 | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/SR[0]                        |                1 |              4 |
+|  clkIn_IBUF_BUFG |                                                                                                          | resetN_IBUF                                                                             |                4 |             10 |
+|  clkIn_IBUF_BUFG |                                                                                                          | BlkGPIO_i/axi_gpio_1/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/SR[0]                        |                7 |             18 |
+|  clkIn_IBUF_BUFG |                                                                                                          |                                                                                         |               11 |             37 |
++------------------+----------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+------------------+----------------+
+
+

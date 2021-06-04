@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_SlaveWriteTo3Reg_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_SlaveWriteTo3Reg" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="280000001fs"></ZoomEndTime>
+      <Cursor1Time time="280000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="231"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="logic" fp_name="/TB_SlaveWriteTo3Reg/clkIn">
+      <obj_property name="ElementShortName">clkIn</obj_property>
+      <obj_property name="ObjectShortName">clkIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SlaveWriteTo3Reg/resetIn">
+      <obj_property name="ElementShortName">resetIn</obj_property>
+      <obj_property name="ObjectShortName">resetIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SlaveWriteTo3Reg/initWrite">
+      <obj_property name="ElementShortName">initWrite</obj_property>
+      <obj_property name="ObjectShortName">initWrite</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SlaveWriteTo3Reg/out1">
+      <obj_property name="ElementShortName">out1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SlaveWriteTo3Reg/out2">
+      <obj_property name="ElementShortName">out2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/TB_SlaveWriteTo3Reg/out3">
+      <obj_property name="ElementShortName">out3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out3[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SlaveWriteTo3Reg/writeDone_0">
+      <obj_property name="ElementShortName">writeDone_0</obj_property>
+      <obj_property name="ObjectShortName">writeDone_0</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/TB_SlaveWriteTo3Reg/writeErrorOccured_0">
+      <obj_property name="ElementShortName">writeErrorOccured_0</obj_property>
+      <obj_property name="ObjectShortName">writeErrorOccured_0</obj_property>
+   </wvobject>
+</wave_config>

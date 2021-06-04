@@ -1,0 +1,8 @@
+verilog xil_defaultlib  \
+"../../../bd/SingleReadBRAM/ip/SingleReadBRAM_blk_mem_gen_0_0/sim/SingleReadBRAM_blk_mem_gen_0_0.v" \
+"../../../bd/SingleReadBRAM/sim/SingleReadBRAM.v" \
+"../../../bd/SingleReadBRAM/ip/SingleReadBRAM_AXIMaster_Single_Read_0_0/sim/SingleReadBRAM_AXIMaster_Single_Read_0_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

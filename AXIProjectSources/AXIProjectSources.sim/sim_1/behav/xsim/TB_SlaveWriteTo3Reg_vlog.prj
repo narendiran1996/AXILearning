@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../AXIProjectSources.srcs/sources_1/new/AXISlave_WriteTo.v" \
+"../../../../AXIProjectSources.srcs/sources_1/new/AXIMaster_Single_Write.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SlaveWriteTo3Reg/ip/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0/sim/SlaveWriteTo3Reg_AXISlave_WriteTo_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SlaveWriteTo3Reg/ip/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0/sim/SlaveWriteTo3Reg_AXIMaster_Single_Wri_0_0.v" \
+"../../../../AXIProjectSources.ip_user_files/bd/SlaveWriteTo3Reg/sim/SlaveWriteTo3Reg.v" \
+"../../../../AXIProjectSources.srcs/sources_1/bd/SlaveWriteTo3Reg/hdl/SlaveWriteTo3Reg_wrapper.v" \
+"../../../../AXIProjectSources.srcs/sim_1/new/TB_SlaveWriteTo3Reg.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

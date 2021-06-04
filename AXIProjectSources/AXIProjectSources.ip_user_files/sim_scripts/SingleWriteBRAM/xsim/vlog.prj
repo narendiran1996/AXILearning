@@ -1,0 +1,10 @@
+verilog xil_defaultlib  \
+"../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_blk_mem_gen_0_0/sim/SingleWriteBRAM_blk_mem_gen_0_0.v" \
+"../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_xlconstant_0_0/sim/SingleWriteBRAM_xlconstant_0_0.v" \
+"../../../bd/SingleWriteBRAM/sim/SingleWriteBRAM.v" \
+"../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_AXIMaster_Single_Read_0_0/sim/SingleWriteBRAM_AXIMaster_Single_Read_0_0.v" \
+"../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_AXIMaster_Single_Wri_0_0/sim/SingleWriteBRAM_AXIMaster_Single_Wri_0_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

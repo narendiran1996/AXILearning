@@ -1,0 +1,10 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/media/narendiran/ubuntu_install/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xb6aadb) [0x7f5c541baadb]
+/media/narendiran/ubuntu_install/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(JVM_handle_linux_signal+0xbb) [0x7f5c541bfe1b]
+/media/narendiran/ubuntu_install/Vivado/2019.1/tps/lnx64/jre9.0.4/lib//server/libjvm.so(+0xb647b8) [0x7f5c541b47b8]
+/lib/x86_64-linux-gnu/libc.so.6(+0x46210) [0x7f5c99c1c210]
+/media/narendiran/ubuntu_install/Vivado/2019.1/lib/lnx64.o/librdi_rsb.so(Java_ui_data_rsbi_RSBBase_1getName+0x3e) [0x7f5c671d997e]
+[0x7f5c447eb011]

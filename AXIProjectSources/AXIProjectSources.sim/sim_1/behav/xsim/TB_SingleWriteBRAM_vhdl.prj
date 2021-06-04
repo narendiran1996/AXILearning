@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_axi_bram_ctrl_0_0/sim/SingleWriteBRAM_axi_bram_ctrl_0_0.vhd" \
+"../../../../AXIProjectSources.ip_user_files/bd/SingleWriteBRAM/ip/SingleWriteBRAM_axi_bram_ctrl_0_1/sim/SingleWriteBRAM_axi_bram_ctrl_0_1.vhd" \
+
+# Do not sort compile order
+nosort

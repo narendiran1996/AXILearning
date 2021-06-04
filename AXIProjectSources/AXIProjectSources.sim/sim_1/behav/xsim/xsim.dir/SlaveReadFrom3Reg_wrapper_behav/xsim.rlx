@@ -1,0 +1,12 @@
+
+{ 
+    crc :  14584806342491750851  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 22b4173d835f442c95586084ff9a77a3 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot SlaveReadFrom3Reg_wrapper_behav xil_defaultlib.SlaveReadFrom3Reg_wrapper xil_defaultlib.glbl" , 
+    buildDate : "May 24 2019" , 
+    buildTime : "14:51:52" , 
+    linkCmd : "/usr/bin/gcc -Wa,-W  -O -fPIC  -m64  -Wl,--no-as-needed  -Wl,--unresolved-symbols=ignore-all  -o \"xsim.dir/SlaveReadFrom3Reg_wrapper_behav/xsimk\"   \"xsim.dir/SlaveReadFrom3Reg_wrapper_behav/obj/xsim_0.lnx64.o\" \"xsim.dir/SlaveReadFrom3Reg_wrapper_behav/obj/xsim_1.lnx64.o\" -L\"/media/narendiran/ubuntu_install/Vivado/2019.1/lib/lnx64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

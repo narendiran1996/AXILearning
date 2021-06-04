@@ -1,0 +1,7 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+Block Memory Generator module tbBRAMwriteToBRAMusingMaster.DUT.BlkBRAMWriteUsingMaster_i.blk_mem_gen_0.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module tbBRAMwriteToBRAMusingMaster.DUT.BlkBRAMWriteUsingMaster_i.blk_mem_gen_0.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 1767 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMWritingUsingMasterAXI/BRAMWritingUsingMasterAXI.srcs/sim_1/new/tbBRAMwriteToBRAMusingMaster.v" Line 109
+Block Memory Generator module tbBRAMwriteToBRAMusingMaster.DUT.BlkBRAMWriteUsingMaster_i.blk_mem_gen_0.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 1767 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMWritingUsingMasterAXI/BRAMWritingUsingMasterAXI.srcs/sim_1/new/tbBRAMwriteToBRAMusingMaster.v" Line 109

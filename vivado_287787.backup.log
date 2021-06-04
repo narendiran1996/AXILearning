@@ -1,0 +1,461 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Jun  4 05:53:51 2021
+# Process ID: 287787
+# Current directory: /home/narendiran/Desktop/AXILearning
+# Command line: vivado
+# Log file: /home/narendiran/Desktop/AXILearning/vivado.log
+# Journal file: /home/narendiran/Desktop/AXILearning/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/media/narendiran/ubuntu_install/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:08 . Memory (MB): peak = 6538.223 ; gain = 246.457 ; free physical = 969 ; free virtual = 14755
+update_compile_order -fileset sources_1
+open_bd_design {/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd}
+Successfully read diagram <BRAMReadingMaster> from BD file </home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd>
+open_bd_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 6683.008 ; gain = 86.020 ; free physical = 838 ; free virtual = 14624
+create_bd_cell -type module -reference MasterReadFromBram MasterReadFromBram_0
+WARNING: [IP_Flow 19-4747] Not inferring AXIMM interface 'M_AXI' due to missing master write-channel signals WREADY.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI_ARESETn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI_ACLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI_ARESETn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI_ACLK': Added interface parameter 'ASSOCIATED_RESET' with value 'M_AXI_ARESETn'.
+WARNING: [IP_Flow 19-3157] Bus Interface 'M_AXI_ARESETn': Bus parameter POLARITY is ACTIVE_LOW but port 'M_AXI_ARESETn' is not *resetn - please double check the POLARITY setting.
+WARNING: [IP_Flow 19-3153] Bus Interface 'M_AXI_ACLK': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_0
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+endgroup
+WARNING: [IP_Flow 19-465] param 'READ_LATENCY' already exists. Ignoring.
+WARNING: [IP_Flow 19-465] param 'RD_CMD_OPTIMIZATION' already exists. Ignoring.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+set_property -dict [list CONFIG.PROTOCOL {AXI4LITE} CONFIG.SINGLE_PORT_BRAM {1} CONFIG.ECC_TYPE {0}] [get_bd_cells axi_bram_ctrl_0]
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-2] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, please note that memory depth value gets calculated based on the Data Width of the IP and Address range selected in the Address Editor.Incase a validation error occured on the range of this parameter, please check if the selected Data width and the Address Range are valid. For valid Data width and memory depth values, please refer to the AXI BRAM Controller Product Guide.
+INFO: [xilinx.com:ip:axi_bram_ctrl:4.1-1] BRAMReadingMaster_axi_bram_ctrl_0_0: In IP Integrator, The Maximum address range supported is 2G. Selecting the address range more than 2G in the address editor may resets the value of Memory depth to default value (1024). please refer to the AXI BRAM Controller Product Guide.
+apply_bd_automation -rule xilinx.com:bd_rule:bram_cntlr -config {BRAM "Auto" }  [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA]
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file '/home/narendiran/Desktop/AXILearning/MemFiles/SampleMemFile.coe' provided. It will be converted relative to IP Instance files '../../../../MemFiles/SampleMemFile.coe'
+startgroup
+set_property -dict [list CONFIG.Memory_Type {Single_Port_ROM} CONFIG.Use_Byte_Write_Enable {false} CONFIG.Load_Init_File {true} CONFIG.Coe_File {/home/narendiran/Desktop/AXILearning/MemFiles/SampleMemFile.coe} CONFIG.Port_A_Write_Rate {0}] [get_bd_cells axi_bram_ctrl_0_bram]
+INFO: [IP_Flow 19-3484] Absolute path of file '/home/narendiran/Desktop/AXILearning/MemFiles/SampleMemFile.coe' provided. It will be converted relative to IP Instance files '../../../../../../../../MemFiles/SampleMemFile.coe'
+endgroup
+update_module_reference BRAMReadingMaster_MasterReadFromBram_0_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI_ARESETn' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI_ACLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI_ARESETn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI_ACLK': Added interface parameter 'ASSOCIATED_BUSIF' with value 'M_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI_ACLK': Added interface parameter 'ASSOCIATED_RESET' with value 'M_AXI_ARESETn'.
+WARNING: [IP_Flow 19-3157] Bus Interface 'M_AXI_ARESETn': Bus parameter POLARITY is ACTIVE_LOW but port 'M_AXI_ARESETn' is not *resetn - please double check the POLARITY setting.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+Upgrading '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd'
+INFO: [IP_Flow 19-3420] Updated BRAMReadingMaster_MasterReadFromBram_0_0 to use current project options
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'M_AXI' (xilinx.com:interface:aximm:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'BRAMReadingMaster_MasterReadFromBram_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 'M_AXI_WREADT'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'M_AXI_WREADY'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'BRAMReadingMaster_MasterReadFromBram_0_0'. These changes may impact your design.
+CRITICAL WARNING: [Coretcl 2-1280] The upgrade of 'BRAMReadingMaster_MasterReadFromBram_0_0' has identified issues that may require user intervention. Please verify that the instance is correctly configured, and review any upgrade messages.
+Wrote  : </home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd> 
+Wrote  : </home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/ui/bd_bc282c52.ui> 
+regenerate_bd_layout
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {Auto} Clk_slave {Auto} Clk_xbar {Auto} Master {/MasterReadFromBram_0/M_AXI} Slave {/axi_bram_ctrl_0/S_AXI} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+Slave segment </axi_bram_ctrl_0/S_AXI/Mem0> is being mapped into address space </MasterReadFromBram_0/M_AXI> at <0xC000_0000 [ 8K ]>
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets clk_wiz_locked] [get_bd_cells clk_wiz]
+delete_bd_objs [get_bd_cells rst_clk_wiz_100M]
+regenerate_bd_layout
+startgroup
+create_bd_port -dir O -from 31 -to 0 readValue
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/readValue] [get_bd_ports readValue]
+endgroup
+startgroup
+create_bd_port -dir O readValid
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/readValid] [get_bd_ports readValid]
+endgroup
+startgroup
+create_bd_port -dir I initializeOperation
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/initializeOperation] [get_bd_ports initializeOperation]
+endgroup
+startgroup
+create_bd_port -dir I -from 31 -to 0 readAddr
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/readAddr] [get_bd_ports readAddr]
+endgroup
+startgroup
+create_bd_port -dir I clkIn
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/M_AXI_ACLK] [get_bd_ports clkIn]
+endgroup
+startgroup
+create_bd_port -dir I resetN
+connect_bd_net [get_bd_pins /MasterReadFromBram_0/M_AXI_ARESETn] [get_bd_ports resetN]
+endgroup
+regenerate_bd_layout
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+regenerate_bd_layout
+validate_bd_design
+WARNING: [BD 41-721] Attempt to set value '0' on disabled parameter 'ID_WIDTH' of cell '/axi_bram_ctrl_0' is ignored
+WARNING: [BD 41-721] Attempt to set value 'NO' on disabled parameter 'SUPPORTS_NARROW_BURST' of cell '/axi_bram_ctrl_0' is ignored
+WARNING: [BD 41-721] Attempt to set value '32' on disabled parameter 'Read_Width_A' of cell '/axi_bram_ctrl_0_bram' is ignored
+WARNING: [BD 41-2180] Resetting the memory initialization file of </axi_bram_ctrl_0_bram> to default.
+save_bd_design
+Wrote  : </home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd> 
+Wrote  : </home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/ui/bd_bc282c52.ui> 
+make_wrapper -files [get_files /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd] -top
+INFO: [BD 41-1662] The design 'BRAMReadingMaster.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-2180] Resetting the memory initialization file of </axi_bram_ctrl_0_bram> to default.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_bram_ctrl_0_bram/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(13) - Only lower order bits will be connected.
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/synth/BRAMReadingMaster.v
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_bram_ctrl_0_bram/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(13) - Only lower order bits will be connected.
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v
+add_files -norecurse /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v
+update_compile_order -fileset sources_1
+file mkdir /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v w ]
+add_files -fileset sim_1 /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v
+update_compile_order -fileset sim_1
+set_property top tbReadFromBRAMusingAXIMaster [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+generate_target Simulation [get_files /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd]
+INFO: [BD 41-1662] The design 'BRAMReadingMaster.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-2180] Resetting the memory initialization file of </axi_bram_ctrl_0_bram> to default.
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_bram_ctrl_0_bram/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(13) - Only lower order bits will be connected.
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/synth/BRAMReadingMaster.v
+WARNING: [BD 41-235] Width mismatch when connecting pin: '/axi_bram_ctrl_0_bram/addra'(32) to net 'axi_bram_ctrl_0_BRAM_PORTA_ADDR'(13) - Only lower order bits will be connected.
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v
+VHDL Output written to : /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block MasterReadFromBram_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_bram_ctrl_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_bram_ctrl_0_bram .
+Exporting to file /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hw_handoff/BRAMReadingMaster.hwh
+Generated Block Design Tcl file /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hw_handoff/BRAMReadingMaster_bd.tcl
+Generated Hardware Definition File /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/synth/BRAMReadingMaster.hwdef
+export_ip_user_files -of_objects [get_files /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/BRAMReadingMaster.bd] -directory /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/sim_scripts -ip_user_files_dir /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files -ipstatic_source_dir /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/modelsim} {questa=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/questa} {ies=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/ies} {xcelium=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/xcelium} {vcs=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/vcs} {riviera=/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/media/narendiran/ubuntu_install/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tbReadFromBRAMusingAXIMaster' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/SampleMemFile.coe'
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.mif'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj tbReadFromBRAMusingAXIMaster_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MasterReadFromBram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_MasterReadFromBram_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_mem_intercon_0
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_U2UQ5R
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tbReadFromBRAMusingAXIMaster
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+xvhdl --incr --relax -prj tbReadFromBRAMusingAXIMaster_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'BRAMReadingMaster_axi_bram_ctrl_0_0'
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 7554.441 ; gain = 0.000 ; free physical = 319 ; free virtual = 14206
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /media/narendiran/ubuntu_install/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling package axi_bram_ctrl_v4_1_1.axi_bram_ctrl_funcs
+Compiling module xil_defaultlib.MasterReadFromBram
+Compiling module xil_defaultlib.BRAMReadingMaster_MasterReadFrom...
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_lite [\axi_lite(c_s_axi_addr_width=13,...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl_top [\axi_bram_ctrl_top(c_bram_addr_w...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl [\axi_bram_ctrl(c_memory_depth=20...]
+Compiling architecture bramreadingmaster_axi_bram_ctrl_0_0_arch of entity xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_0_0 [bramreadingmaster_axi_bram_ctrl_...]
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3(C_FAMILY="zyn...
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_...
+Compiling module xil_defaultlib.s00_couplers_imp_U2UQ5R
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_mem_interc...
+Compiling module xil_defaultlib.BRAMReadingMaster
+Compiling module xil_defaultlib.BRAMReadingMaster_wrapper
+Compiling module xil_defaultlib.tbReadFromBRAMusingAXIMaster
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tbReadFromBRAMusingAXIMaster_behav
+
+****** Webtalk v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/xsim.dir/tbReadFromBRAMusingAXIMaster_behav/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 384.293 ; gain = 0.000 ; free physical = 174 ; free virtual = 14093
+INFO: [Common 17-206] Exiting Webtalk at Fri Jun  4 06:03:26 2021...
+run_program: Time (s): cpu = 00:00:10 ; elapsed = 00:00:18 . Memory (MB): peak = 7554.441 ; gain = 0.000 ; free physical = 293 ; free virtual = 14212
+INFO: [USF-XSim-69] 'elaborate' step finished in '18' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tbReadFromBRAMusingAXIMaster_behav -key {Behavioral:sim_1:Functional:tbReadFromBRAMusingAXIMaster} -tclbatch {tbReadFromBRAMusingAXIMaster.tcl} -protoinst "protoinst_files/BRAMReadingMaster.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/BRAMReadingMaster.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//MasterReadFromBram_0/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_bram_ctrl_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/S_AXI
+Time resolution is 1 ps
+source tbReadFromBRAMusingAXIMaster.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tbReadFromBRAMusingAXIMaster.DUT.BRAMReadingMaster_i.axi_bram_ctrl_0_bram.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 919 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tbReadFromBRAMusingAXIMaster_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:26 ; elapsed = 00:00:35 . Memory (MB): peak = 7634.191 ; gain = 79.750 ; free physical = 281 ; free virtual = 14194
+relaunch_sim
+suspend_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 7646.758 ; gain = 0.000 ; free physical = 238 ; free virtual = 14151
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/media/narendiran/ubuntu_install/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tbReadFromBRAMusingAXIMaster' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/SampleMemFile.coe'
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.mif'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj tbReadFromBRAMusingAXIMaster_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MasterReadFromBram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_MasterReadFromBram_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_mem_intercon_0
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_U2UQ5R
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tbReadFromBRAMusingAXIMaster
+xvhdl --incr --relax -prj tbReadFromBRAMusingAXIMaster_vhdl.prj
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /media/narendiran/ubuntu_install/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling package axi_bram_ctrl_v4_1_1.axi_bram_ctrl_funcs
+Compiling module xil_defaultlib.MasterReadFromBram
+Compiling module xil_defaultlib.BRAMReadingMaster_MasterReadFrom...
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_lite [\axi_lite(c_s_axi_addr_width=13,...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl_top [\axi_bram_ctrl_top(c_bram_addr_w...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl [\axi_bram_ctrl(c_memory_depth=20...]
+Compiling architecture bramreadingmaster_axi_bram_ctrl_0_0_arch of entity xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_0_0 [bramreadingmaster_axi_bram_ctrl_...]
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3(C_FAMILY="zyn...
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_...
+Compiling module xil_defaultlib.s00_couplers_imp_U2UQ5R
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_mem_interc...
+Compiling module xil_defaultlib.BRAMReadingMaster
+Compiling module xil_defaultlib.BRAMReadingMaster_wrapper
+Compiling module xil_defaultlib.tbReadFromBRAMusingAXIMaster
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tbReadFromBRAMusingAXIMaster_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2019.1
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/BRAMReadingMaster.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//MasterReadFromBram_0/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_bram_ctrl_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/S_AXI
+Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tbReadFromBRAMusingAXIMaster.DUT.BRAMReadingMaster_i.axi_bram_ctrl_0_bram.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 919 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" Line 55
+relaunch_sim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:17 . Memory (MB): peak = 7652.754 ; gain = 5.996 ; free physical = 237 ; free virtual = 14130
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/media/narendiran/ubuntu_install/Vivado/2019.1/data/xsim/xsim.ini' copied to run dir:'/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tbReadFromBRAMusingAXIMaster' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/SampleMemFile.coe'
+INFO: [SIM-utils-43] Exported '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.mif'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj tbReadFromBRAMusingAXIMaster_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MasterReadFromBram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_MasterReadFromBram_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_mem_intercon_0
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_U2UQ5R
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tbReadFromBRAMusingAXIMaster
+xvhdl --incr --relax -prj tbReadFromBRAMusingAXIMaster_vhdl.prj
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /media/narendiran/ubuntu_install/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto ec3806f130c645bfad2f2c619f38e7f7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L axi_bram_ctrl_v4_1_1 -L blk_mem_gen_v8_4_3 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbReadFromBRAMusingAXIMaster_behav xil_defaultlib.tbReadFromBRAMusingAXIMaster xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling package axi_bram_ctrl_v4_1_1.axi_bram_ctrl_funcs
+Compiling module xil_defaultlib.MasterReadFromBram
+Compiling module xil_defaultlib.BRAMReadingMaster_MasterReadFrom...
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_lite [\axi_lite(c_s_axi_addr_width=13,...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl_top [\axi_bram_ctrl_top(c_bram_addr_w...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl [\axi_bram_ctrl(c_memory_depth=20...]
+Compiling architecture bramreadingmaster_axi_bram_ctrl_0_0_arch of entity xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_0_0 [bramreadingmaster_axi_bram_ctrl_...]
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3(C_FAMILY="zyn...
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_bram_ctrl_...
+Compiling module xil_defaultlib.s00_couplers_imp_U2UQ5R
+Compiling module xil_defaultlib.BRAMReadingMaster_axi_mem_interc...
+Compiling module xil_defaultlib.BRAMReadingMaster
+Compiling module xil_defaultlib.BRAMReadingMaster_wrapper
+Compiling module xil_defaultlib.tbReadFromBRAMusingAXIMaster
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tbReadFromBRAMusingAXIMaster_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tbReadFromBRAMusingAXIMaster_behav -key {Behavioral:sim_1:Functional:tbReadFromBRAMusingAXIMaster} -tclbatch {tbReadFromBRAMusingAXIMaster.tcl} -protoinst "protoinst_files/BRAMReadingMaster.protoinst" -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/BRAMReadingMaster.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//MasterReadFromBram_0/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_bram_ctrl_0/S_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/M00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/S00_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/M_AXI
+INFO: [Wavedata 42-564]   Found protocol instance at /tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i//axi_mem_intercon/s00_couplers/S_AXI
+Time resolution is 1 ps
+source tbReadFromBRAMusingAXIMaster.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tbReadFromBRAMusingAXIMaster.DUT.BRAMReadingMaster_i.axi_bram_ctrl_0_bram.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 919 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" Line 55
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tbReadFromBRAMusingAXIMaster_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 7658.723 ; gain = 5.969 ; free physical = 243 ; free virtual = 14125
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jun  4 06:06:31 2021...

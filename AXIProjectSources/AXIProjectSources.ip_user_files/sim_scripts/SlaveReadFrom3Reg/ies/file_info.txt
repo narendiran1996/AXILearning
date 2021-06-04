@@ -1,0 +1,7 @@
+xpm_cdc.sv,systemverilog,xil_defaultlib,../../../../../../../../../media/narendiran/ubuntu_install/Vivado/2019.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,
+xpm_memory.sv,systemverilog,xil_defaultlib,../../../../../../../../../media/narendiran/ubuntu_install/Vivado/2019.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../media/narendiran/ubuntu_install/Vivado/2019.1/data/ip/xpm/xpm_VCOMP.vhd,
+SlaveReadFrom3Reg_AXISlave_ReadFrom_1_0.v,verilog,xil_defaultlib,../../../bd/SlaveReadFrom3Reg/ip/SlaveReadFrom3Reg_AXISlave_ReadFrom_1_0/sim/SlaveReadFrom3Reg_AXISlave_ReadFrom_1_0.v,
+SlaveReadFrom3Reg_AXIMaster_Single_Read_0_0.v,verilog,xil_defaultlib,../../../bd/SlaveReadFrom3Reg/ip/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_0/sim/SlaveReadFrom3Reg_AXIMaster_Single_Read_0_0.v,
+SlaveReadFrom3Reg.v,verilog,xil_defaultlib,../../../bd/SlaveReadFrom3Reg/sim/SlaveReadFrom3Reg.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

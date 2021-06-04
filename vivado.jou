@@ -1,0 +1,53 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Jun  4 09:28:11 2021
+# Process ID: 341883
+# Current directory: /home/narendiran/Desktop/AXILearning
+# Command line: vivado VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.xpr
+# Log file: /home/narendiran/Desktop/AXILearning/vivado.log
+# Journal file: /home/narendiran/Desktop/AXILearning/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list {sw_4bits[3]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {sw_4bits[2]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {sw_4bits[1]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {sw_4bits[0]}]]
+place_ports {sw_4bits[3]} G15
+place_ports {sw_4bits[2]} P15
+place_ports {sw_4bits[1]} W13
+place_ports {sw_4bits[0]} T16
+save_constraints
+open_hw
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_hw
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {/home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/impl_1/BlkGPIO_wrapper.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {/home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/impl_1/BlkGPIO_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {/home/narendiran/Desktop/AXILearning/VivadoProjects/MasterAXIGPIO/MasterAXIGPIO.runs/impl_1/BlkGPIO_wrapper.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]

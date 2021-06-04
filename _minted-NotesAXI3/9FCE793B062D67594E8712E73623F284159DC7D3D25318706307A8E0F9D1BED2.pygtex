@@ -1,0 +1,60 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// for AWVALID}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}										
+    \PYG{k}{begin}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0}\PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{axi\PYGZus{}awvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{else}
+        \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(} \PYG{n}{init\PYGZus{}txn\PYGZus{}pulse} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{)}
+            \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}awvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}AWREADY} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}awvalid}\PYG{p}{)}
+            \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}awvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+            \PYG{k}{end}
+        \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for WVALID}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0} \PYG{p}{)}
+        \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}wvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{init\PYGZus{}txn\PYGZus{}pulse} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{)}
+        \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}wvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+        \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}WREADY} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}wvalid}\PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{axi\PYGZus{}wvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for BREADY}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}
+    \PYG{k}{begin}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0}\PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}BVALID}\PYG{o}{==}\PYG{l+m+mh}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}bready}\PYG{o}{==}\PYG{l+m+mh}{0}\PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}bready}\PYG{o}{==}\PYG{l+m+mh}{1}\PYG{p}{)}
+        \PYG{k}{begin}
+        \PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+        \PYG{k}{end}
+    \PYG{k}{else}
+        \PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZlt{}=} \PYG{n}{axi\PYGZus{}bready}\PYG{p}{;}
+    \PYG{k}{end}
+
+\PYG{k}{assign} \PYG{n}{writeErrorOccured} \PYG{o}{=} \PYG{p}{(}\PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZam{}} \PYG{n}{M\PYGZus{}AXI\PYGZus{}BVALID} \PYG{o}{\PYGZam{}} \PYG{n}{M\PYGZus{}AXI\PYGZus{}BRESP}\PYG{p}{[}\PYG{l+m+mh}{1}\PYG{p}{]);}
+\PYG{k}{assign} \PYG{n}{writeDone} \PYG{o}{=} \PYG{p}{(}\PYG{n}{axi\PYGZus{}bready} \PYG{o}{\PYGZam{}} \PYG{n}{M\PYGZus{}AXI\PYGZus{}BVALID}\PYG{p}{);}
+\end{Verbatim}

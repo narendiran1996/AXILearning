@@ -1,0 +1,47 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// for ARVALID}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}arvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+          \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{init\PYGZus{}txn\PYGZus{}pulse} \PYG{o}{==} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}arvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+          \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARREADY}\PYG{o}{==}\PYG{l+m+mh}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}arvalid}\PYG{o}{==}\PYG{l+m+mh}{1}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}arvalid} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+          \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// for RREADY}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}
+    \PYG{k}{begin}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}rready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+          \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}RVALID}\PYG{o}{==}\PYG{l+m+mh}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}rready}\PYG{o}{==}\PYG{l+m+mh}{0}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}rready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b1}\PYG{p}{;}
+          \PYG{k}{end}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{axi\PYGZus{}rready}\PYG{o}{==}\PYG{l+m+mh}{1}\PYG{p}{)}
+          \PYG{k}{begin}
+            \PYG{n}{axi\PYGZus{}rready} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+          \PYG{k}{end}
+    \PYG{k}{end}
+
+\PYG{c+c1}{// Reading the data}
+\PYG{k+kt}{reg} \PYG{p}{[}\PYG{l+m+mh}{31}\PYG{o}{:}\PYG{l+m+mh}{0}\PYG{p}{]}\PYG{n}{myVal}\PYG{p}{;}
+\PYG{k}{always} \PYG{p}{@(}\PYG{k}{posedge} \PYG{n}{M\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{)}
+  \PYG{k}{begin}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}ARESETN} \PYG{o}{==} \PYG{l+m+mh}{0}\PYG{p}{)}
+        \PYG{n}{myVal} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mh}{1}\PYG{l+m+mb}{\PYGZsq{}b0}\PYG{p}{;}
+    \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{M\PYGZus{}AXI\PYGZus{}RVALID}\PYG{o}{==}\PYG{l+m+mh}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{axi\PYGZus{}rready}\PYG{o}{==}\PYG{l+m+mh}{1}\PYG{p}{)}
+      \PYG{n}{myVal} \PYG{o}{\PYGZlt{}=} \PYG{n}{M\PYGZus{}AXI\PYGZus{}RDATA}\PYG{p}{;}
+    \PYG{k}{else}
+      \PYG{n}{myVal} \PYG{o}{\PYGZlt{}=} \PYG{n}{myVal}\PYG{p}{;}
+  \PYG{k}{end}
+\end{Verbatim}

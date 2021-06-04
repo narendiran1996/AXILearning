@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{//Global Signals}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}ACLK}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARESETN}\PYG{p}{,}
+\PYG{c+c1}{// Write address interface (issued by master)}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{32}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWADDR}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{2} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWPROT}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWVALID}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}AWREADY}\PYG{p}{,}
+\PYG{c+c1}{// Write Data interface (issued by Master)}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{32}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WDATA}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[(}\PYG{l+m+mh}{32}\PYG{o}{/}\PYG{l+m+mh}{8}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}WSTRB}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}WVALID}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}WREADY}\PYG{p}{,}
+    \PYG{c+c1}{// Write Response interface (issued by slave)}
+\PYG{k}{output} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}BRESP}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}BVALID}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}BREADY}\PYG{p}{,}
+\PYG{c+c1}{// Read Address interface (issued by master)}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{32}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARADDR}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{2} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARPROT}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARVALID}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}ARREADY}\PYG{p}{,}
+\PYG{c+c1}{// Read Data interface (issued by slave)}
+\PYG{k}{output} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{32}\PYG{o}{\PYGZhy{}}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}RDATA}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire} \PYG{p}{[}\PYG{l+m+mh}{1} \PYG{o}{:} \PYG{l+m+mh}{0}\PYG{p}{]} \PYG{n}{S\PYGZus{}AXI\PYGZus{}RRESP}\PYG{p}{,}
+\PYG{k}{output} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}RVALID}\PYG{p}{,}
+\PYG{k}{input} \PYG{k+kt}{wire}  \PYG{n}{S\PYGZus{}AXI\PYGZus{}RREADY}
+\end{Verbatim}

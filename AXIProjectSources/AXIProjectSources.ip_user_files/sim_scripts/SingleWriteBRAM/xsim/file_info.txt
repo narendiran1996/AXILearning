@@ -1,0 +1,8 @@
+SingleWriteBRAM_axi_bram_ctrl_0_0.vhd,vhdl,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_axi_bram_ctrl_0_0/sim/SingleWriteBRAM_axi_bram_ctrl_0_0.vhd,
+SingleWriteBRAM_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_blk_mem_gen_0_0/sim/SingleWriteBRAM_blk_mem_gen_0_0.v,
+SingleWriteBRAM_axi_bram_ctrl_0_1.vhd,vhdl,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_axi_bram_ctrl_0_1/sim/SingleWriteBRAM_axi_bram_ctrl_0_1.vhd,
+SingleWriteBRAM_xlconstant_0_0.v,verilog,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_xlconstant_0_0/sim/SingleWriteBRAM_xlconstant_0_0.v,
+SingleWriteBRAM.v,verilog,xil_defaultlib,../../../bd/SingleWriteBRAM/sim/SingleWriteBRAM.v,
+SingleWriteBRAM_AXIMaster_Single_Read_0_0.v,verilog,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_AXIMaster_Single_Read_0_0/sim/SingleWriteBRAM_AXIMaster_Single_Read_0_0.v,
+SingleWriteBRAM_AXIMaster_Single_Wri_0_0.v,verilog,xil_defaultlib,../../../bd/SingleWriteBRAM/ip/SingleWriteBRAM_AXIMaster_Single_Wri_0_0/sim/SingleWriteBRAM_AXIMaster_Single_Wri_0_0.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
