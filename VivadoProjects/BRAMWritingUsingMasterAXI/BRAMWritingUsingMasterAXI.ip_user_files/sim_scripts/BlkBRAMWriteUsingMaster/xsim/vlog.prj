@@ -1,0 +1,9 @@
+verilog xil_defaultlib  \
+"../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0/sim/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0.v" \
+"../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0/sim/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0.v" \
+"../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0/sim/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0.v" \
+"../../../bd/BlkBRAMWriteUsingMaster/sim/BlkBRAMWriteUsingMaster.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

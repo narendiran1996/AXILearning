@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tbReadFromBRAMusingAXIMaster_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="glbl" />
+            <top_module name="tbReadFromBRAMusingAXIMaster" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1299477708fs"></ZoomEndTime>
+      <Cursor1Time time="239994000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="188"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/clkIn">
+      <obj_property name="ElementShortName">clkIn</obj_property>
+      <obj_property name="ObjectShortName">clkIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/resetN">
+      <obj_property name="ElementShortName">resetN</obj_property>
+      <obj_property name="ObjectShortName">resetN</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/initializeOperation">
+      <obj_property name="ElementShortName">initializeOperation</obj_property>
+      <obj_property name="ObjectShortName">initializeOperation</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbReadFromBRAMusingAXIMaster/readAddr">
+      <obj_property name="ElementShortName">readAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readAddr[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbReadFromBRAMusingAXIMaster/readValue">
+      <obj_property name="ElementShortName">readValue[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readValue[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/readValid">
+      <obj_property name="ElementShortName">readValid</obj_property>
+      <obj_property name="ObjectShortName">readValid</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group76">
+      <obj_property name="label">Read Address Chanel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_ARADDR">
+         <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_ARVALID">
+         <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_ARREADY">
+         <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group77">
+      <obj_property name="label">Read Data Channel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_RDATA">
+         <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_RRESP">
+         <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_RVALID">
+         <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_RREADY">
+         <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tbReadFromBRAMusingAXIMaster/DUT/BRAMReadingMaster_i/MasterReadFromBram_0/inst/M_AXI_RLAST">
+         <obj_property name="ElementShortName">M_AXI_RLAST</obj_property>
+         <obj_property name="ObjectShortName">M_AXI_RLAST</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

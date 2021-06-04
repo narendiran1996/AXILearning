@@ -1,0 +1,6 @@
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tbReadFromBRAMusingAXIMaster.DUT.BRAMReadingMaster_i.axi_bram_ctrl_0_bram.inst.native_mem_mapped_module.blk_mem_gen_v8_4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+$finish called at time : 919 ns : File "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" Line 55

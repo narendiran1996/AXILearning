@@ -1,0 +1,5 @@
+BRAMReadingMaster_MasterReadFromBram_0_0.v,verilog,xil_defaultlib,../../../bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v,
+BRAMReadingMaster_axi_bram_ctrl_0_0.vhd,vhdl,xil_defaultlib,../../../bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_0.vhd,
+BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v,verilog,xil_defaultlib,../../../bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v,
+BRAMReadingMaster.v,verilog,xil_defaultlib,../../../bd/BRAMReadingMaster/sim/BRAMReadingMaster.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

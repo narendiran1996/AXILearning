@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0/sim/BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0.vhd" \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0/sim/BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0.vhd" \
+
+# Do not sort compile order
+nosort

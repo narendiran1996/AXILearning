@@ -1,0 +1,4 @@
+Running: xsim.dir/tbBRAMwriteToBRAMusingMaster_behav/xsimk -simmode gui -wdb tbBRAMwriteToBRAMusingMaster_behav.wdb -simrunnum 0 -socket 48033
+Design successfully loaded
+Design Loading Memory Usage: 34100 KB (Peak: 34100 KB)
+Design Loading CPU Usage: 60 ms

@@ -1,0 +1,2 @@
+memory_initialization_radix=16;
+memory_initialization_vector=caddadba abababab f0f0f0f0 11111111 11111111 00000000 01010101 aaaaaaaa bbbbbbbb cccccccc dddddddd efefefef eeeeeeee ffffffff 0a00a00a 0bbbbbb0;

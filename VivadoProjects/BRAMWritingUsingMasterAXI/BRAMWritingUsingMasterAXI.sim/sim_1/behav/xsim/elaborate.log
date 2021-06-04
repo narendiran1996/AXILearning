@@ -1,0 +1,39 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /media/narendiran/ubuntu_install/Vivado/2019.1/bin/unwrapped/lnx64.o/xelab -wto e438ba73389e42ed8101cefab9aacf49 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_3 -L axi_bram_ctrl_v4_1_1 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tbBRAMwriteToBRAMusingMaster_behav xil_defaultlib.tbBRAMwriteToBRAMusingMaster xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package xpm.vcomponents
+Compiling package axi_bram_ctrl_v4_1_1.axi_bram_ctrl_funcs
+Compiling module xil_defaultlib.MasterReadFromBram
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_MasterRe...
+Compiling module xil_defaultlib.MasterWriteToBRAM
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_MasterWr...
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_lite [\axi_lite(c_s_axi_addr_width=13,...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl_top [\axi_bram_ctrl_top(c_bram_addr_w...]
+Compiling architecture implementation of entity axi_bram_ctrl_v4_1_1.axi_bram_ctrl [\axi_bram_ctrl(c_memory_depth=20...]
+Compiling architecture blkbramwriteusingmaster_axi_bram_ctrl_0_0_arch of entity xil_defaultlib.BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0 [blkbramwriteusingmaster_axi_bram...]
+Compiling architecture blkbramwriteusingmaster_axi_bram_ctrl_1_0_arch of entity xil_defaultlib.BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0 [blkbramwriteusingmaster_axi_bram...]
+Compiling module xil_defaultlib.s00_couplers_imp_1WRA24D
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_axi_mem_...
+Compiling module xil_defaultlib.s00_couplers_imp_1PL3SJW
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_axi_mem_...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_output_stage(...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_3.blk_mem_gen_v8_4_3(C_FAMILY="zyn...
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_blk_mem_...
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster
+Compiling module xil_defaultlib.BlkBRAMWriteUsingMaster_wrapper
+Compiling module xil_defaultlib.tbBRAMwriteToBRAMusingMaster
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tbBRAMwriteToBRAMusingMaster_behav

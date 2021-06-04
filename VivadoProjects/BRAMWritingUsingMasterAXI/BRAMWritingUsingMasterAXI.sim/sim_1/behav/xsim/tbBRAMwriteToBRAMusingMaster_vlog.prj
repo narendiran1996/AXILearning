@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../BRAMWritingUsingMasterAXI.srcs/sources_1/new/MasterWriteToBRAM.v" \
+"../../../../BRAMWritingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0/sim/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0.v" \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0/sim/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0.v" \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0/sim/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0.v" \
+"../../../../BRAMWritingUsingMasterAXI.ip_user_files/bd/BlkBRAMWriteUsingMaster/sim/BlkBRAMWriteUsingMaster.v" \
+"../../../../BRAMWritingUsingMasterAXI.srcs/sources_1/bd/BlkBRAMWriteUsingMaster/hdl/BlkBRAMWriteUsingMaster_wrapper.v" \
+"../../../../BRAMWritingUsingMasterAXI.srcs/sim_1/new/tbBRAMwriteToBRAMusingMaster.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

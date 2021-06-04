@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tbBRAMwriteToBRAMusingMaster_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="glbl" />
+            <top_module name="tbBRAMwriteToBRAMusingMaster" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="4440000001fs"></ZoomEndTime>
+      <Cursor1Time time="535000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="188"></NameColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="19" />
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/clkIn">
+      <obj_property name="ElementShortName">clkIn</obj_property>
+      <obj_property name="ObjectShortName">clkIn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/resetN">
+      <obj_property name="ElementShortName">resetN</obj_property>
+      <obj_property name="ObjectShortName">resetN</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/readAddr_0">
+      <obj_property name="ElementShortName">readAddr_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readAddr_0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/initializeOperation_R">
+      <obj_property name="ElementShortName">initializeOperation_R</obj_property>
+      <obj_property name="ObjectShortName">initializeOperation_R</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/readValue_0">
+      <obj_property name="ElementShortName">readValue_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readValue_0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/readValid_0">
+      <obj_property name="ElementShortName">readValid_0</obj_property>
+      <obj_property name="ObjectShortName">readValid_0</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/writeAddr_0">
+      <obj_property name="ElementShortName">writeAddr_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeAddr_0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/writeData_0">
+      <obj_property name="ElementShortName">writeData_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData_0[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/initializeOperation_W">
+      <obj_property name="ElementShortName">initializeOperation_W</obj_property>
+      <obj_property name="ObjectShortName">initializeOperation_W</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/writeDone_0">
+      <obj_property name="ElementShortName">writeDone_0</obj_property>
+      <obj_property name="ObjectShortName">writeDone_0</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_AWADDR">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_AWVALID">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_AWREADY">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_WDATA">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_WVALID">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_WREADY">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_BRESP">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_BVALID">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tbBRAMwriteToBRAMusingMaster/DUT/BlkBRAMWriteUsingMaster_i/MasterWriteToBRAM_0/inst/M_AXI_BREADY">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+</wave_config>

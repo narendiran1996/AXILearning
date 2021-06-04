@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_0.vhd" \
+
+# Do not sort compile order
+nosort

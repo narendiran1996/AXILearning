@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../BRAMReadingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" \
+"../../../../BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v" \
+"../../../../BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v" \
+"../../../../BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v" \
+"../../../../BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v" \
+"../../../../BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/new/MasterReadFromBram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MasterReadFromBram
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_MasterReadFromBram_0_0/sim/BRAMReadingMaster_MasterReadFromBram_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_MasterReadFromBram_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/ip/BRAMReadingMaster_axi_bram_ctrl_0_bram_0/sim/BRAMReadingMaster_axi_bram_ctrl_0_bram_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_bram_ctrl_0_bram_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.ip_user_files/bd/BRAMReadingMaster/sim/BRAMReadingMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_axi_mem_intercon_0
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_U2UQ5R
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sources_1/bd/BRAMReadingMaster/hdl/BRAMReadingMaster_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BRAMReadingMaster_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/narendiran/Desktop/AXILearning/VivadoProjects/BRAMReadingUsingMasterAXI/BRAMReadingUsingMasterAXI.srcs/sim_1/new/tbReadFromBRAMusingAXIMaster.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tbReadFromBRAMusingAXIMaster

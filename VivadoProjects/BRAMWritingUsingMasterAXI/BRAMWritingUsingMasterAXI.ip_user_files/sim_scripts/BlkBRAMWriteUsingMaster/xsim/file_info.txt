@@ -1,0 +1,7 @@
+BlkBRAMWriteUsingMaster_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0/sim/BlkBRAMWriteUsingMaster_blk_mem_gen_0_0.v,
+BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0.vhd,vhdl,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0/sim/BlkBRAMWriteUsingMaster_axi_bram_ctrl_0_0.vhd,
+BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0.v,verilog,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0/sim/BlkBRAMWriteUsingMaster_MasterWriteToBRAM_0_0.v,
+BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0.v,verilog,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0/sim/BlkBRAMWriteUsingMaster_MasterReadFromBram_0_0.v,
+BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0.vhd,vhdl,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/ip/BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0/sim/BlkBRAMWriteUsingMaster_axi_bram_ctrl_1_0.vhd,
+BlkBRAMWriteUsingMaster.v,verilog,xil_defaultlib,../../../bd/BlkBRAMWriteUsingMaster/sim/BlkBRAMWriteUsingMaster.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

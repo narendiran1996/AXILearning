@@ -7,7 +7,7 @@
 
 \usepackage{hyperref}
 \usepackage{minted}
-
+\usepackage{adjustbox}
 \usepackage{tikz-timing}[2014/10/29]
 \usetikztiminglibrary[rising arrows]{clockarrows}
 
@@ -26,7 +26,7 @@
 
 \begin{document}
 \large
-    \maketitle
+\maketitle
 
 \quad AXI - Advacned eXtensible Interface
 \subsubsection{Objectives}
@@ -52,10 +52,10 @@
     \item AXI protocol is \emph{burst-based}.
     \item Every transaction has address and control information on the address channel which describes the nature of data transfers
     \item Data is transferred between master and slave
-    \begin{itemize}
-        \item Using a write data channel to the slave
-        \item Using a read data channel to the master
-    \end{itemize}
+          \begin{itemize}
+              \item Using a write data channel to the slave
+              \item Using a read data channel to the master
+          \end{itemize}
     \item In write transaction, all data flows from master to slave
     \item In write response channel, the slave signals the completion of write transaction to master.
 \end{itemize}
@@ -77,11 +77,11 @@
 \begin{itemize}
     \item There are five channels namely \chFormat{Read Address} channel, \chFormat{Read Data} channel, \chFormat{Write Address} channel,\chFormat{Write Data} channel and \chFormat{Write Response} channel.
     \item All the five independent channels uses a two-way \AXISignals{VALID} and \AXISignals{READY} handshake mechanism.
-    \begin{itemize}        
-        \item The information Source uses the \AXISignals{VALID} signal to shown when valid data or control information is available on the channel.
-        \item The Destination uses the \AXISignals{READY} signal to show it can accept the data.
-    \end{itemize}
-    \item The \chFormat{Read data} and \chFormat{Write data} channel uses the \AXISignals{LAST} signal to indicate the transfer of final data item withing a transaction.   
+          \begin{itemize}
+              \item The information Source uses the \AXISignals{VALID} signal to shown when valid data or control information is available on the channel.
+              \item The Destination uses the \AXISignals{READY} signal to show it can accept the data.
+          \end{itemize}
+    \item The \chFormat{Read data} and \chFormat{Write data} channel uses the \AXISignals{LAST} signal to indicate the transfer of final data item withing a transaction.
 \end{itemize}
 \subsubsection{Supported Mechanisms}
 \begin{itemize}
@@ -133,7 +133,7 @@
 \quad Consist of master and slave devices connected together fthrough some interconnect.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{./Resources/interconnect.png}    
+    \includegraphics[width=1\textwidth]{./Resources/interconnect.png}
     \caption{Interconnects}
 \end{figure}
 
@@ -148,25 +148,25 @@
 \quad THe following describes the read burst of four transfer.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{./Resources/readBurstExample.png}    
+    \includegraphics[width=1\textwidth]{./Resources/readBurstExample.png}
     \caption{Read Burst Example}
 \end{figure}
 \begin{itemize}
     \item The \chFormat{read address} and \chFormat{read data} channels are used for this read transaction.
     \item Master drives the address and slave accept in one cycle.
-    \begin{itemize}
-        \item Master places the address on \AXISignals{ARADDR} bus in the \chFormat{read address} channel.
-        \item Master makes the \AXISignals{ARVALID} HIGH to indicate that read address is available and its valid.
-        \item Then, the slave makes the \AXISignals{ARREADY} signal HIGH to indicate its ready to accept the address
-    \end{itemize} 
+          \begin{itemize}
+              \item Master places the address on \AXISignals{ARADDR} bus in the \chFormat{read address} channel.
+              \item Master makes the \AXISignals{ARVALID} HIGH to indicate that read address is available and its valid.
+              \item Then, the slave makes the \AXISignals{ARREADY} signal HIGH to indicate its ready to accept the address
+          \end{itemize}
     \item The master on receiving the \AXISignals{ARREADY} signal of the \chFormat{read address} channel from the slave, makes the \AXISignals{RREADY} signal of the \chFormat{Read data} channel HIGH.
     \item Now, the slave sends the data throught the \chFormat{read data} channels.
-    \begin{itemize}
-        \item Slave places the data on to the \AXISignals{RDATA} bus and makes the \AXISignals{RVALID} signal HIGH to start the data transfer.
-        \item Now, the master on receives the first data by checking the \AXISignals{RVALID} signal form the slave.
-        \item On receiving the data, the master makes the \AXISignals{RREADY} signal LOW untill it can process the recieved data from slave.
-        \item WHen master is ready to receive, the master makes the \AXISignals{RREADY} singal HIGH to indicate it can receive further data.
-    \end{itemize}
+          \begin{itemize}
+              \item Slave places the data on to the \AXISignals{RDATA} bus and makes the \AXISignals{RVALID} signal HIGH to start the data transfer.
+              \item Now, the master on receives the first data by checking the \AXISignals{RVALID} signal form the slave.
+              \item On receiving the data, the master makes the \AXISignals{RREADY} signal LOW untill it can process the recieved data from slave.
+              \item WHen master is ready to receive, the master makes the \AXISignals{RREADY} singal HIGH to indicate it can receive further data.
+          \end{itemize}
     \item Now, the slave places the second data onto the \AXISignals{RDATA} bus and makes the \AXISignals{RVALID} signal HIGH.
     \item The above process repeates.
     \item When the last data is to be sent, the slave placess the last data onto the \AXISignals{RDATA} bus and makes the \AXISignals{RLAST} and \AXISignals{RVALID} HIGH.
@@ -181,18 +181,18 @@
 \end{itemize}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{./Resources/overlappingBurstExample.png}    
+    \includegraphics[width=1\textwidth]{./Resources/overlappingBurstExample.png}
     \caption{Overlapping Burst Example}
 \end{figure}
 
 \begin{itemize}
     \item The \chFormat{read address} and \chFormat{read data} channels are used for this read transaction.
     \item Master drives the address and slave accept in one cycle.
-    \begin{itemize}
-        \item Master places the address on \AXISignals{ARADDR} bus in the \chFormat{read address} channel.
-        \item Master makes the \AXISignals{ARVALID} HIGH to indicate that read address is available and its valid.
-        \item Then, the slave makes the \AXISignals{ARREADY} signal HIGH to indicate its ready to accept the address
-    \end{itemize} 
+          \begin{itemize}
+              \item Master places the address on \AXISignals{ARADDR} bus in the \chFormat{read address} channel.
+              \item Master makes the \AXISignals{ARVALID} HIGH to indicate that read address is available and its valid.
+              \item Then, the slave makes the \AXISignals{ARREADY} signal HIGH to indicate its ready to accept the address
+          \end{itemize}
     \item The master on receiving the \AXISignals{ARREADY} signal of the \chFormat{read address} channel from the slave, makes the \AXISignals{RREADY} signal of the \chFormat{Read data} channel HIGH.
     \item Now, the slave sends the data throught the \chFormat{read data} channels.
     \item During the above process, the master places the next address to be read for next read burst onto the \AXISignals{ARADDR} bus and makes the \AXISignals{ARVALID} singal.
@@ -204,31 +204,31 @@
 \quad The following describes the write burst example.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{./Resources/writeBurstExample.png}    
+    \includegraphics[width=1\textwidth]{./Resources/writeBurstExample.png}
     \caption{Write Burst Example}
 \end{figure}
 \begin{itemize}
     \item The \chFormat{Write address}, \chFormat{Write Data} and \chFormat{Write Response} channel are used for this write transaction.
     \item The process is started by master placing the address and control information onto the \chFormat{write address} channel.
-    \begin{itemize}
-        \item Master places the address onto the \AXISignals{AWADDR} bus and mkes the \AXISignals{AWVALID} singal HIGH.
-        \item Now, the slaves accepts the address from master after one cycle by making the \AXISignals{AWREAD} signal HIGH.
-    \end{itemize}
+          \begin{itemize}
+              \item Master places the address onto the \AXISignals{AWADDR} bus and mkes the \AXISignals{AWVALID} singal HIGH.
+              \item Now, the slaves accepts the address from master after one cycle by making the \AXISignals{AWREAD} signal HIGH.
+          \end{itemize}
     \item Also, the master makes the \AXISignals{BREADY} singal HIGH in the \chFormat{write response} channel for getting the response of this write transaction.
     \item After the slave responds by making the \AXISignals{AWREADY} HIGHT, the master starts sending the data and control information in the \chFormat{write data} channel.
-    \begin{itemize}
-        \item THe master places the first data to be sent onto to the \AXISignals{WDATA} bus and makes the \AXISignals{WVALID} signal HIGH.
-        \item After one cycle, the slave accepts the data from master by making the \AXISignals{WREADY} signal HIGH.
-        \item After accepting the data, the slave mkaes the \AXISignals{WREADY} singal LOW for processing.        
-    \end{itemize} 
+          \begin{itemize}
+              \item THe master places the first data to be sent onto to the \AXISignals{WDATA} bus and makes the \AXISignals{WVALID} signal HIGH.
+              \item After one cycle, the slave accepts the data from master by making the \AXISignals{WREADY} signal HIGH.
+              \item After accepting the data, the slave mkaes the \AXISignals{WREADY} singal LOW for processing.
+          \end{itemize}
     \item Now, the master sends the next data onto the \AXISignals{WDATA} bus and makes the \AXISignals{WVALID} singal HIGH.
     \item The above process is repeated for further data.
     \item When sending the last data, the master places the data onto the \AXISignals{WDATA} bus and makes the \AXISignals{WVALID} singal and \AXISignals{WLAST} singal HIGH.
     \item The slave makes the \AXISignals{WREADY} for the last time for that write transaction and accepts the data.
     \item Now, the slave responds to master by driving the \chFormat{Write Response} channel to indicate the completion of write transaction.
-    \begin{itemize}
-        \item The slave makes the \AXISignals{BRESP} signal to be \emph{\textcolor{green}{OKAY}} to indicate the success and makes the \AXISignals{BVALID} singal HIGH.
-    \end{itemize}
+          \begin{itemize}
+              \item The slave makes the \AXISignals{BRESP} signal to be \emph{\textcolor{green}{OKAY}} to indicate the success and makes the \AXISignals{BVALID} singal HIGH.
+          \end{itemize}
 \end{itemize}
 
 \section{Signal Description}
@@ -242,18 +242,18 @@
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{c|c|c|p{9.5cm}}
-            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}\\
+            \textbf{Signals} & \textbf{Source} & \textbf{Name}       & \textbf{Description}                                                                                                                                                              \\
             \hline
-            AWID[3:0] & Master & Write Address ID & ID tag for write address group of signal.\\
-            AWADDR[31:0] & Master & Write Address & The actual write address for first transfer in a write burst transaction.\\
-            AWLEN[3:0] & Master & Burst length & Number of data transfers in a burst associated with address.\\
-            AWSIZE[2:0] & Master & Burst size & Size of each data transfer in a burst.\\
-            AWBURST[1:0] & Master & Burst Type & Burst type along with size information calculates addresses for each transfer withing burst.\\
-            AWLOCK[1:0] & Master & Lock Type & Atomic Characteristics of transfer.\\
-            AWCACHE[3:0] & Master & Cache Type & indicates the bufferable, cacheable, write-through, write-back and allocate attributes of the transaction.\\
-            AWPROT[2:0] & Master & Projection Type & indicates the normal, privileged, or secure protection level of the transaction and whether the transaction is a data access or an instruction access.\\
-            AWVALID & Master & Write address valid & 1 - address and control information are available and valid. Address and control information should be stable until address acknowledgemnt signal \AXISignals{AWREADY} goes HIGH.\\
-            AWREADY & Slave & Write address ready & 1 - salve ready to accept an address and associated control signal.\\
+            AWID[3:0]        & Master          & Write Address ID    & ID tag for write address group of signal.                                                                                                                                         \\
+            AWADDR[31:0]     & Master          & Write Address       & The actual write address for first transfer in a write burst transaction.                                                                                                         \\
+            AWLEN[3:0]       & Master          & Burst length        & Number of data transfers in a burst associated with address.                                                                                                                      \\
+            AWSIZE[2:0]      & Master          & Burst size          & Size of each data transfer in a burst.                                                                                                                                            \\
+            AWBURST[1:0]     & Master          & Burst Type          & Burst type along with size information calculates addresses for each transfer withing burst.                                                                                      \\
+            AWLOCK[1:0]      & Master          & Lock Type           & Atomic Characteristics of transfer.                                                                                                                                               \\
+            AWCACHE[3:0]     & Master          & Cache Type          & indicates the bufferable, cacheable, write-through, write-back and allocate attributes of the transaction.                                                                        \\
+            AWPROT[2:0]      & Master          & Projection Type     & indicates the normal, privileged, or secure protection level of the transaction and whether the transaction is a data access or an instruction access.                            \\
+            AWVALID          & Master          & Write address valid & 1 - address and control information are available and valid. Address and control information should be stable until address acknowledgemnt signal \AXISignals{AWREADY} goes HIGH. \\
+            AWREADY          & Slave           & Write address ready & 1 - salve ready to accept an address and associated control signal.                                                                                                               \\
         \end{tabular}
     \end{center}
 \end{table}
@@ -262,17 +262,17 @@
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{c|c|c|p{9.5cm}}
-            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}\\
+            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}                                                                                              \\
             \hline
-            WID[3:0] & Master & Write ID & ID tag for write data group of signal. \AXISignals{WID} must be equal to \AXISignals{AWID} for write transaction.\\
-            WDATA[31:0] & Master & Write Data & The actual write data. Can be 8, 16, 32, 64, 128, 256, 512 or 1024 bits wide\\
-            WSTRB[3:0] & Master & Write Strobes & indicates which byte lanes to update in memory. One write strobe for each eight bits of write data bus.
+            WID[3:0]         & Master          & Write ID      & ID tag for write data group of signal. \AXISignals{WID} must be equal to \AXISignals{AWID} for write transaction. \\
+            WDATA[31:0]      & Master          & Write Data    & The actual write data. Can be 8, 16, 32, 64, 128, 256, 512 or 1024 bits wide                                      \\
+            WSTRB[3:0]       & Master          & Write Strobes & indicates which byte lanes to update in memory. One write strobe for each eight bits of write data bus.
             \begin{center}
                 $WSTRB[n] = WDATA[(8*n) + 7:(8*n)]$
-            \end{center}\\
-            WLAST & Master & Write last & indicate the last data transfer in a write burst.\\
-            WVALID & Master & Write valid & 1 - write data and stobes are available and valid.\\
-            WREADY & Slave & Write ready & 1 - salve ready to accept write data.\\
+            \end{center}                                                                                                                                             \\
+            WLAST            & Master          & Write last    & indicate the last data transfer in a write burst.                                                                 \\
+            WVALID           & Master          & Write valid   & 1 - write data and stobes are available and valid.                                                                \\
+            WREADY           & Slave           & Write ready   & 1 - salve ready to accept write data.                                                                             \\
         \end{tabular}
     \end{center}
 \end{table}
@@ -281,12 +281,12 @@
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{c|c|c|p{9.5cm}}
-            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}\\
+            \textbf{Signals} & \textbf{Source} & \textbf{Name}        & \textbf{Description}                                                                                                                                                                            \\
             \hline
-            BID[3:0] & Slave & Response ID & ID tag for write response group of signal. \AXISignals{BID} must be equal to \AXISignals{AWID} for write transaction.\\
-            BRESP[1:0] & Slave & Write Response & indicates the status of write transaction and can take \emph{\textcolor{green}{OKAY}}, \emph{\textcolor{green}{EXOKAY}}, \emph{\textcolor{green}{SLVERR}} and \emph{\textcolor{green}{DECERR}}.\\
-            BVALID & Slave & Write responds valid & 1 - write response is available and valid.\\
-            BREADY & Master & Write response ready & 1 - master ready to accept response information.\\
+            BID[3:0]         & Slave           & Response ID          & ID tag for write response group of signal. \AXISignals{BID} must be equal to \AXISignals{AWID} for write transaction.                                                                           \\
+            BRESP[1:0]       & Slave           & Write Response       & indicates the status of write transaction and can take \emph{\textcolor{green}{OKAY}}, \emph{\textcolor{green}{EXOKAY}}, \emph{\textcolor{green}{SLVERR}} and \emph{\textcolor{green}{DECERR}}. \\
+            BVALID           & Slave           & Write responds valid & 1 - write response is available and valid.                                                                                                                                                      \\
+            BREADY           & Master          & Write response ready & 1 - master ready to accept response information.                                                                                                                                                \\
         \end{tabular}
     \end{center}
 \end{table}
@@ -295,18 +295,18 @@
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{c|c|c|p{9.5cm}}
-            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}\\
+            \textbf{Signals} & \textbf{Source} & \textbf{Name}      & \textbf{Description}                                                                                                                                                              \\
             \hline
-            ARID[3:0] & Master & Read address ID & ID tag for read address group of signal.\\
-            ARADDR[31:0] & Master & Read Address & The actual read address for first transfer in a read burst transaction.\\
-            ARLEN[3:0] & Master & Burst length & Number of data transfers in a burst associated with address.\\
-            ARSIZE[2:0] & Master & Burst size & Size of each data transfer in a burst.\\
-            ARBURST[1:0] & Master & Burst Type & Burst type along with size information calculates addresses for each transfer within burst.\\
-            ARLOCK[1:0] & Master & Lock Type & Atomic Characteristics of transfer.\\
-            ARCACHE[3:0] & Master & Cache Type & indicates cacheable attributes of the transaction.\\
-            ARPROT[2:0] & Master & Projection Type & indicates the protection unit information transaction.\\
-            ARVALID & Master & Read address valid & 1 - address and control information are available and valid. Address and control information should be stable until address acknowledgemnt signal \AXISignals{ARREADY} goes HIGH.\\
-            ARREADY & Slave & Read address ready & 1 - salve ready to accept an address and associated control signal.\\
+            ARID[3:0]        & Master          & Read address ID    & ID tag for read address group of signal.                                                                                                                                          \\
+            ARADDR[31:0]     & Master          & Read Address       & The actual read address for first transfer in a read burst transaction.                                                                                                           \\
+            ARLEN[3:0]       & Master          & Burst length       & Number of data transfers in a burst associated with address.                                                                                                                      \\
+            ARSIZE[2:0]      & Master          & Burst size         & Size of each data transfer in a burst.                                                                                                                                            \\
+            ARBURST[1:0]     & Master          & Burst Type         & Burst type along with size information calculates addresses for each transfer within burst.                                                                                       \\
+            ARLOCK[1:0]      & Master          & Lock Type          & Atomic Characteristics of transfer.                                                                                                                                               \\
+            ARCACHE[3:0]     & Master          & Cache Type         & indicates cacheable attributes of the transaction.                                                                                                                                \\
+            ARPROT[2:0]      & Master          & Projection Type    & indicates the protection unit information transaction.                                                                                                                            \\
+            ARVALID          & Master          & Read address valid & 1 - address and control information are available and valid. Address and control information should be stable until address acknowledgemnt signal \AXISignals{ARREADY} goes HIGH. \\
+            ARREADY          & Slave           & Read address ready & 1 - salve ready to accept an address and associated control signal.                                                                                                               \\
         \end{tabular}
     \end{center}
 \end{table}
@@ -315,14 +315,14 @@
 \begin{table}[H]
     \begin{center}
         \begin{tabular}{c|c|c|p{9.5cm}}
-            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}\\
+            \textbf{Signals} & \textbf{Source} & \textbf{Name} & \textbf{Description}                                                                                                                                                                      \\
             \hline
-            RID[3:0] & Slave & Read ID & ID tag for read data group of signal. \AXISignals{RID} must be equal to \AXISignals{ARID} for read transaction.\\
-            RDATA[31:0] & Slave & Read Data & The actual read data. Can be 8, 16, 32, 64, 128, 256, 512 or 1024 bits wide\\
-            RRESP[1:0] & Slave & Read Response & indicate the status of read transfer and can be  \emph{\textcolor{green}{OKAY}}, \emph{\textcolor{green}{EXOKAY}}, \emph{\textcolor{green}{SLVERR}} and \emph{\textcolor{green}{DECERR}}.\\
-            RLAST & Slave & Read last & indicate the last data transfer in a read burst.\\
-            RVALID & Slave & Read valid & 1 - read data are available and valid.  read transfer is complete \\
-            RREADY & Master & Read ready & 1 - master ready to accept read data and response information.\\
+            RID[3:0]         & Slave           & Read ID       & ID tag for read data group of signal. \AXISignals{RID} must be equal to \AXISignals{ARID} for read transaction.                                                                           \\
+            RDATA[31:0]      & Slave           & Read Data     & The actual read data. Can be 8, 16, 32, 64, 128, 256, 512 or 1024 bits wide                                                                                                               \\
+            RRESP[1:0]       & Slave           & Read Response & indicate the status of read transfer and can be  \emph{\textcolor{green}{OKAY}}, \emph{\textcolor{green}{EXOKAY}}, \emph{\textcolor{green}{SLVERR}} and \emph{\textcolor{green}{DECERR}}. \\
+            RLAST            & Slave           & Read last     & indicate the last data transfer in a read burst.                                                                                                                                          \\
+            RVALID           & Slave           & Read valid    & 1 - read data are available and valid.  read transfer is complete                                                                                                                         \\
+            RREADY           & Master          & Read ready    & 1 - master ready to accept read data and response information.                                                                                                                            \\
         \end{tabular}
     \end{center}
 \end{table}
@@ -382,11 +382,11 @@
     \item Now the salve makes the \AXISignals{AWREADY} singal HIGH.
 \end{itemize}
 \begin{tikztimingtable}[%
-    timing/dslope=0.1,
-    timing/.style={x=5ex,y=2ex},
-    x=5ex,
-    timing/rowdist=3ex,
-    timing/name/.style={font=\sffamily\scriptsize}
+        timing/dslope=0.1,
+        timing/.style={x=5ex,y=2ex},
+        x=5ex,
+        timing/rowdist=3ex,
+        timing/name/.style={font=\sffamily\scriptsize}
     ]
     \busref{ACLK}  & [C] C C C C C 12{C}\\
     \busref{AWADDR}  & U U U 3D{Valid Address}  U U  U U  U UU  U U  U U \\
@@ -404,11 +404,11 @@
     \item When the \AXISignals{WVALID} is LOW, \AXISignals{WSTRB[3:0]} must be LOW or held at previous value.
 \end{itemize}
 \begin{tikztimingtable}[%
-    timing/dslope=0.1,
-    timing/.style={x=5ex,y=2ex},
-    x=5ex,
-    timing/rowdist=3ex,
-    timing/name/.style={font=\sffamily\scriptsize}
+        timing/dslope=0.1,
+        timing/.style={x=5ex,y=2ex},
+        x=5ex,
+        timing/rowdist=3ex,
+        timing/name/.style={font=\sffamily\scriptsize}
     ]
     \busref{ACLK}  & [C] C C C C C 12{C}\\
     \busref{WDATA}  & U U U 3D{Valid Data}  U U  U U  U UU  U U  U U \\
@@ -426,11 +426,11 @@
     \item The default value of \AXISignals{BREADY} is HIGH only if master can always accept the write response in a single cycle.
 \end{itemize}
 \begin{tikztimingtable}[%
-    timing/dslope=0.1,
-    timing/.style={x=5ex,y=2ex},
-    x=5ex,
-    timing/rowdist=3ex,
-    timing/name/.style={font=\sffamily\scriptsize}
+        timing/dslope=0.1,
+        timing/.style={x=5ex,y=2ex},
+        x=5ex,
+        timing/rowdist=3ex,
+        timing/name/.style={font=\sffamily\scriptsize}
     ]
     \busref{ACLK}  & [C] C C C C C 12{C}\\
     \busref{BRESP}  & 12{U} 2D{OKAY}  U U  U \\
@@ -445,11 +445,11 @@
     \item The slave must drive \AXISignals{RLAST} singal HIGH indicating that its transferig the last data transfer in the read burst.
 \end{itemize}
 \begin{tikztimingtable}[%
-    timing/dslope=0.1,
-    timing/.style={x=5ex,y=2ex},
-    x=5ex,
-    timing/rowdist=3ex,
-    timing/name/.style={font=\sffamily\scriptsize}
+        timing/dslope=0.1,
+        timing/.style={x=5ex,y=2ex},
+        x=5ex,
+        timing/rowdist=3ex,
+        timing/name/.style={font=\sffamily\scriptsize}
     ]
     \busref{ACLK}  & [C] C C C C C 12{C}\\
     \busref{RDATA}  & U U U 3D{Valid Data}  U U  U U  U UU  U U  U U \\
@@ -465,19 +465,19 @@
     \item The single-headed arrow point to signal that can be asserted before or after the previous signal.
     \item The double-headed arrow point to signal that must be asserted only after the previous signal.
     \item For read transaction,
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Resources/ReadtransactionHandshakeDependencies.png}
-    \caption{Read transaction handshake dependencies}
-\end{figure}
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width=0.5\textwidth]{Resources/ReadtransactionHandshakeDependencies.png}
+              \caption{Read transaction handshake dependencies}
+          \end{figure}
     \item the slave can wait for \AXISignals{ARVALID} to be asserted before it asserts \AXISignals{ARREADY} singal.
     \item the slave must wait for both \AXISignals{ARVALID} and \AXISignals{ARREADY} to be asserted befoere it starts to return data by asserting \AXISignals{RVALID}.
     \item For Write transaction,
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.5\textwidth]{Resources/WritetransactionHandshakeDependencies.png}
-        \caption{Write transaction handshake dependencies}
-    \end{figure}
+          \begin{figure}[H]
+              \centering
+              \includegraphics[width=0.5\textwidth]{Resources/WritetransactionHandshakeDependencies.png}
+              \caption{Write transaction handshake dependencies}
+          \end{figure}
     \item the master must not wait for the slave to assert \AXISignals{AWREADY} or \AXISignals{WREADY} before asserting \AXISignals{AWVALID} or \AXISignals{WVALID}
     \item the slave can wait for \AXISignals{AWVALID} or \AXISignals{WVALID}, or both, before asserting \AXISignals{AWREADY} and/or \AXISignals{WREADY}
     \item the slave must wait for both \AXISignals{WVALID} and \AXISignals{WREADY} to be asserted before asserting \AXISignals{BVALID}
@@ -501,35 +501,52 @@
 \begin{itemize}
     \item The \AXISignals{AWSIZE} or \AXISignals{ARSIZE} singal specifies the Number of data bytes in each beat or data transfer.
     \item The \AXISignals{AWSIZE} or \AXISignals{ARSIZE} singal can take values as shown
-       
-    \begin{center}
-        \begin{tabular}{c|c}
-            \textbf{ARSIZE[2:0]} or \textbf{AWSIZE[2:0]} & \textbf{Bytes in each transfer}\\
-            \hline
-            3'b000 & 1\\
-            3'b001 & 2\\
-            3'b010 & 4\\
-            3'b011 & 8\\
-            3'b100 & 16\\
-            3'b101 & 32\\
-            3'b110 & 64\\
-            3'b111 & 128\\
-        \end{tabular}
-    \end{center}
+
+          \begin{center}
+              \begin{tabular}{c|c}
+                  \textbf{ARSIZE[2:0]} or \textbf{AWSIZE[2:0]} & \textbf{Bytes in each transfer} \\
+                  \hline
+                  3'b000                                       & 1                               \\
+                  3'b001                                       & 2                               \\
+                  3'b010                                       & 4                               \\
+                  3'b011                                       & 8                               \\
+                  3'b100                                       & 16                              \\
+                  3'b101                                       & 32                              \\
+                  3'b110                                       & 64                              \\
+                  3'b111                                       & 128                             \\
+              \end{tabular}
+          \end{center}
     \item AXI determines the trandfer address and also which byte lane to use.
 \end{itemize}
 
 \subsection{Burst Type}
+% \begin{table}[H]
+%     \begin{center}
+%         % \begin{adjustbox}{max width=0.9\textwidth}
+%         \begin{tabular}{c|c|c|c}
+%             \textbf{ARBURST[1:0] or AWBURST[1:0]} & \textbf{Burst type} & \textbf{Access}          & \textbf{Descritpion}                                                                                                                                                                                                                                                        \\
+%             \hline
+%             2'b00                                 & FIXED               & FIFO-type                & Fixed-address burst -- address remains same for every data transfer in the burst; Used in case of repeated acesses to same location such as when loading or emptying  peripheral FIFO.                                                                                      \\
+%             2'b01                                 & INCR                & Normal sequential memory & incrementing-address burst -- the address for each transfer in the burst in an increment of the previous transfer address. The incrementing value depends on the size of the transfer. If the burst size is 4, then the address of each transfer is previous address plus 4 \\
+%             2'b10                                 & WRAP                & Cache line               & incrementing-address burst that wraps to a lower address at wratp boundaries -- wrap boundarry is the size of each transfer in burst multiplied by total number of transfer in the burst.                                                                                   \\
+%         \end{tabular}
+%         % \end{adjustbox}
+%     \end{center}
+% \end{table}
+
+
 \begin{table}[H]
-    \begin{center}
-        \begin{tabular}{c|c|p{2cm}|p{6.5cm}}
-            \textbf{ARBURST[1:0] or AWBURST[1:0]} & \textbf{Burst type} & \textbf{Access} & \textbf{Descritpion}\\
+    \centering
+    \begin{adjustbox}{max width=0.9\textwidth}
+        \begin{tabular}{c|c|c|c}
+            \textbf{ARBURST[1:0] or AWBURST[1:0]} & \textbf{Burst type} & \textbf{Access}          & \textbf{Descritpion}                                                                                                                                                                                                                                                        \\
             \hline
-            2'b00 & FIXED & FIFO-type & Fixed-address burst -- address remains same for every data transfer in the burst; Used in case of repeated acesses to same location such as when loading or emptying  peripheral FIFO.\\
-            2'b01 & INCR & Normal sequential memory & incrementing-address burst -- the address for each transfer in the burst in an increment of the previous transfer address. The incrementing value depends on the size of the transfer. If the burst size is 4, then the address of each transfer is previous address plus 4\\
-            2'b10 & WRAP & Cache line & incrementing-address burst that wraps to a lower address at wratp boundaries -- wrap boundarry is the size of each transfer in burst multiplied by total number of transfer in the burst.\\
+            2'b00                                 & FIXED               & FIFO-type                & Fixed-address burst -- address remains same for every data transfer in the burst; Used in case of repeated acesses to same location such as when loading or emptying  peripheral FIFO.                                                                                      \\
+            2'b01                                 & INCR                & Normal sequential memory & incrementing-address burst -- the address for each transfer in the burst in an increment of the previous transfer address. The incrementing value depends on the size of the transfer. If the burst size is 4, then the address of each transfer is previous address plus 4 \\
+            2'b10                                 & WRAP                & Cache line               & incrementing-address burst that wraps to a lower address at wratp boundaries -- wrap boundarry is the size of each transfer in burst multiplied by total number of transfer in the burst.                                                                                   \\
+            \hline
         \end{tabular}
-    \end{center}
+    \end{adjustbox}
 \end{table}
 
 \subsection{Burst address}
@@ -549,29 +566,29 @@
 
 \begin{itemize}
     \item Addresses of tranfers within a burst
-    \begin{itemize}
-        \item[$*$] $Start\_Address = ADDR$
-        \item[$*$] $Number\_Bytes = 2^{SIZE}$
-        \item[$*$] $Burst\_Lenght = LEN + 1 $
-        \item[$*$] $Aligned\_Address = INT(\frac{Start\_Address}{Number\_Bytes}) * Number\_Bytes$
-    \end{itemize}
+          \begin{itemize}
+              \item[$*$] $Start\_Address = ADDR$
+              \item[$*$] $Number\_Bytes = 2^{SIZE}$
+              \item[$*$] $Burst\_Lenght = LEN + 1 $
+              \item[$*$] $Aligned\_Address = INT(\frac{Start\_Address}{Number\_Bytes}) * Number\_Bytes$
+          \end{itemize}
     \item First Address
-    \begin{itemize}
-        \item[$*$] $Address\_1 = Start\_Address$
-    \end{itemize}
+          \begin{itemize}
+              \item[$*$] $Address\_1 = Start\_Address$
+          \end{itemize}
     \item Address of any tranfer after the first transfer in a burst
-    \begin{itemize}
-        \item[$*$] $Address\_N = Aligned\_Address + (N-1)*Number\_Bytes$
-    \end{itemize}
+          \begin{itemize}
+              \item[$*$] $Address\_N = Aligned\_Address + (N-1)*Number\_Bytes$
+          \end{itemize}
     \item The wrapping boundary in wrapping burst
-    \begin{itemize}
-        \item[$*$] $Wrap\_Boundary = INT(\frac{Start\_Address}{Number\_Bytes * Burst\_Length}) * Number\_Bytes * Burst\_Length$ 
-        \item[$*$] $Address\_N = Wrap\_Boundary$. 
-    \end{itemize}
+          \begin{itemize}
+              \item[$*$] $Wrap\_Boundary = INT(\frac{Start\_Address}{Number\_Bytes * Burst\_Length}) * Number\_Bytes * Burst\_Length$
+              \item[$*$] $Address\_N = Wrap\_Boundary$.
+          \end{itemize}
     \item Data is transferred on
-    \begin{itemize}
-        \item[$*$] $DATA[(8*Upper\_Byte\_Lane) + 7 : (8*Lower\_Byte\_Lane)]$
-    \end{itemize}
+          \begin{itemize}
+              \item[$*$] $DATA[(8*Upper\_Byte\_Lane) + 7 : (8*Lower\_Byte\_Lane)]$
+          \end{itemize}
 \end{itemize}
 
 \section{Basic Interface for Master}
@@ -1041,5 +1058,8 @@ always @( posedge S_AXI_ACLK )
     \centering
     \includegraphics[width=1\textwidth]{Resources/SlaveReadFrom3RegOutput.png}
 \end{figure}
+
+
+\section{\Large \textcolor{red}{UPDATED (June 4)}}
 
 \end{document}
